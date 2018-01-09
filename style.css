@@ -86,6 +86,14 @@ body {
 			text-decoration: none;
 		}
 
+		#left ul{
+			list-style-type: none;
+		}
+
+		#left ul li ul{
+			list-style-type: square;
+		}
+
 		#header, #footer {
 			font-size: large;
 			padding: 0.3em;
