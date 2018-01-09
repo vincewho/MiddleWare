@@ -3,7 +3,7 @@ body {
 		}
 
 		#container {
-			padding-left: 200px;
+			padding-left: 230px;
       padding-right: 300px;
 		}
 
@@ -18,9 +18,9 @@ body {
 		}
 
 		#left {
-			width: 180px;
-			padding: 0 10px;
-			right: 240px;
+			width: 215px;
+			padding: 0 15px;
+			right: 280px;
 			margin-left: -100%;
 		}
 
@@ -63,7 +63,7 @@ body {
 			background: #fff;
 		}
 
-		/* Aesthetics */
+		/* Look & Color */
 		body {
 			margin: 0;
 			padding: 0;
@@ -71,47 +71,62 @@ body {
 			line-height: 1.5em;
 		}
 
-		p {
-			color: #555;
-		}
-
-		nav ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-
-		nav ul a {
-			color: darkgreen;
-			text-decoration: none;
-		}
-
 		#left ul{
 			list-style-type: none;
-		}
-
-		#left ul li ul{
-			list-style-type: square;
 		}
 
 		#header, #footer {
 			font-size: large;
 			padding: 0.3em;
-			background: #BCCE98;
+			background: #4885ED;
 		}
 
 		#left {
-			background: #DAE9BC;
+			background: #ebfbff;
 		}
 
 		#right {
-			background: #F7FDEB;
+			background: #ebfbff;
 		}
 
 		#center {
-			background: #fff;
+			background: #FFF;
 		}
 
 		#container .column {
 			padding-top: 1em;
+		}
+		/* Creating the Navbar */
+	nav ul {
+		  list-style: none;
+		  background-color: #444;
+		  text-align: center;
+		  padding: 0;
+		  margin: 0;
+		}
+nav li {
+		  font-family: 'Oswald', sans-serif;
+		  font-size: 1.2em;
+		  line-height: 40px;
+		  height: 40px;
+		  border-bottom: 1px solid #888;
+			display: inline-block;
+			padding: 0px 15px;
+		}
+
+nav a {
+		  text-decoration: none;
+		  color: #fff;
+		  display: block;
+		  transition: .3s background-color;
+		}
+
+nav a:hover {
+		  background-color: #005f5f;
+		}
+
+nav a.active {
+		  background-color: #fff;
+		  color: #444;
+		  cursor: default;
 		}
