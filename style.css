@@ -75,7 +75,14 @@ body {
 			list-style-type: none;
 		}
 
-		#header, #footer {
+		#header {
+			font-size: large;
+			padding: 0.3em;
+			background: #4885ED;
+			padding-bottom: 100px;
+		}
+
+		#footer {
 			font-size: large;
 			padding: 0.3em;
 			background: #4885ED;
@@ -96,6 +103,7 @@ body {
 		#container .column {
 			padding-top: 1em;
 		}
+
 		/* Creating the Navbar */
 	nav ul {
 		  list-style: none;
@@ -130,3 +138,15 @@ nav a.active {
 		  color: #444;
 		  cursor: default;
 		}
+
+/* Style for head and foot */
+.leftalign{
+	float: left;
+	padding: 0px 10px;
+}
+
+.rightalign{
+	float: right;
+	padding: 0px 10px;
+	background: ;
+}
