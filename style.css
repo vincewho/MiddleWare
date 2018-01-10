@@ -77,14 +77,18 @@ body {
 
 		#header {
 			font-size: large;
-			padding: 0.3em;
+			padding: 10px 10px;
 			background: #4885ED;
 			padding-bottom: 100px;
 		}
 
 		#footer {
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
 			font-size: large;
-			padding: 0.3em;
+			padding: 0px 10px;
 			background: #4885ED;
 		}
 
