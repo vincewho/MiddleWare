@@ -3,10 +3,10 @@ body {
 }
 
 #container {
-	width: 1000px;
+	width: 1050px;
 	overflow: hidden;
 	margin: 0 auto 0 auto;
-	padding: 10px 20px 20px 20px;
+	padding: 10px 20px 10px 20px;
 	/* background: #F6F6F0 url(back.png) repeat-y; */
 	border: 15px solid #FFF;
 }
@@ -16,9 +16,8 @@ body {
 	float: right;
 }
 
-#center {
-	padding: 10px 20px;
-	width: 100%;
+#container #registertbl{
+	text-align: right;
 }
 
 #left {
@@ -29,10 +28,12 @@ body {
 }
 
 #right {
+	background: #ebfbff;
 	width: 205px;
   padding: 0px 10px;
-  margin-right: -103%;
+  margin-right: -101%;
 	border-left: solid 1px;
+
 }
 
 #footer {
@@ -77,7 +78,6 @@ body {
 }
 
 article{
-	width: 75%;
 	padding: 0px 15px;
 }
 
@@ -98,11 +98,13 @@ article{
 }
 
 #right {
-	background: #ebfbff;
 }
 
 #center {
 	background: #FFF;
+	padding: 10px 20px;
+	width: 73%;
+	margin-right: 23%;
 }
 
 #container .column {
@@ -113,7 +115,7 @@ article{
 #footer{
 	width: 100%;
   font-family: sans-serif;
-  font-size: 70%;
+  font-size: 75%;
   height: 70px;
   padding: 10px 0 10px 0;
   text-align: center;
