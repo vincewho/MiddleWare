@@ -29,9 +29,9 @@ function username_validation(uname)
 	var uname_length = uname.value.length;
 	var unameReq = '/^[a-z0-9_-]{1,}$/';
 	uname = uname.toString();
-	if (uname_length == 0 || uname_length > 12)
+	if (uname_length == 0 || uname_length > 8)
 	{
-		alert("Username required! Must be at most 12 characters long.");
+		alert("Username required! Must be at most 8 characters long.");
 		uname.focus();
 		return false;
 	}
