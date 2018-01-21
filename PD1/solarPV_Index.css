@@ -300,19 +300,59 @@ ul#menu li a:hover
 
 /* Making it responsive */
 
+/* pictures */
 #homegallery
 {
     width: 60%;
     height: auto;
 }
 
-#thevideo{
+#testingjpg{
+    width: 66%;
+    height: auto;
+}
+
+#perf1, #perf2, #perf3{
+    width: 45%;
+    height: auto;
+}
+
+#datajpg{
+    width: 55%;
+    height: auto;
+}
+
+/* End of pictures */
+
+/* The titles about videos did not align correctly */
+#videotitle, #predicttitle{
+    padding-left: 48%
+}
+
+.thevideo{
+    display: block;
+    margin: 0% 27.5%;
     width: 60%;
     height: auto;
 }
 
+/* End of the video stuff */
+
+/* Mobile and responsive adjustments */
+
 @media only screen and (max-width:1400px) {
   /* For tablets: */
-  #thevideo {
+    .thevideo {
     width:55%;
   }
+}
+
+@media only screen and (max-width:1400px) {
+    #testingjpg{
+        display: none;
+    }
+
+    #dragdrop{
+        display: none;
+    }
+}
