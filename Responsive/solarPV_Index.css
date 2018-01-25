@@ -293,3 +293,20 @@ ul#menu li a:hover
     width: 80%;
     height: auto;
 }
+
+/* For the drag & Drop */
+#div1
+{  width: 350px;
+   height: 100px;
+   padding: 5px;
+   border: 1px solid #aaaaaa;}
+#div2
+{  width: 350px;
+   height: 100px;
+   padding: 5px;
+   border: 1px solid #aaaaaa;}
+#div3
+{  width: 350px;
+   height: 100px;
+   padding: 5px;
+   border: 1px solid #aaaaaa;}
