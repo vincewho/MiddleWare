@@ -1,0 +1,111 @@
+
+<html>
+<head>
+	<title>Welcome Page</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		
+		//onload, the placeholder value changes to required.
+		// onnload, replace the link with a button
+		$(document).ready(function(){
+				$("input").attr("placeholder","Required");	
+				$(".btn1").replaceWith("<button class=\"btn1\">Search</button>");
+		
+		//on search button click, form will be hidden, the text will be shown
+				$(".btn1").click(function(){
+				$("form").hide();
+				$("#text").show();
+				});
+		
+		//on submit, the values will be displayed in empty rows & prevents the default action
+				$("form").submit(function(event){
+					var c = 0;	
+					var field = ["Student Id", "Student Name", "Student DOB", "Student Age"];
+					
+					$("input[type=text],input[type=datetime],input[type=number]").each(function() { 
+					$(".show-vals").append(field[c] +": "+ $(this).val() + "<br>"); 
+					c++;
+					});
+					
+					var checked = $("input[type=radio]:checked").val(); 
+					$(".show-vals").append("Program: " + checked + "<br>Campus: "); 
+					
+					$("input[type=checkbox]:checked").each(function(i){
+					$(".show-vals").append("<br>" + $(this).val());
+					});
+	
+						
+						
+					event.preventDefault();
+					});
+				});
+	
+
+
+	</script>
+	
+</head>
+<body bgcolor="khaki">
+
+	<br><br><br><br><br>
+	<center>
+		<font face="arial black" size="4">
+		Student Registration System<br>
+		IFT 458 SPRING 2018</font><br>
+		<br>
+		<hr size="4" color="blue"/>
+<br><br>
+		<table border="1" width="800" height="300">
+			<tr>
+				<th align="center" colspan="3"> Student Regisration Form </th>
+			</tr>
+			<tr height="150">
+			
+				<td width="20%"><a href="search.html" class="btn1">Search</a></td>
+
+				<td width="60%">
+
+					<form method="post" action="#">
+						<table>
+							<tr><td>Student Id</td><td><input type="text" placeholder=" "/>*</td></tr>
+
+								<tr><td>Student Name</td><td><input type="text" placeholder=" "/></td></tr>
+
+								<tr><td>Student DOB</td><td><input type="datetime" placeholder=" "/></td></tr>
+
+								<tr><td>Student Age</td><td><input type="number" placeholder=" " /></td></tr>
+
+								<tr><td>Program:</td></tr>
+												<tr><td><input type="radio" name="program" value="IFT"/> IFT </td></tr>
+												<tr><td><input type="radio" name="program" value="EGR" /> EGR </td></tr>
+												<tr><td><input type="radio" name="program" value="SER" /> SER </td></tr>
+												<tr><td><input type="radio" name="program" value="CSE" /> CSE </td></tr>
+												<tr><td><input type="radio" name="program" value="GIT" /> GIT </td></tr>
+												
+								<tr><td>Campus:</tr></td>
+												<tr><td><input type="checkbox" name="vehicle" value="Poly">Poly<tr><td>
+												<tr><td><input type="checkbox" name="vehicle" value="Main">Main<tr><td>
+												<tr><td><input type="checkbox" name="vehicle" value="West">West<tr><td>
+												<tr><td><input type="checkbox" name="vehicle" value="Downtown">Downtown<tr><td>
+								
+								<tr><td colspan="2" align="center"><input style="font-face :'Comic Sans MS';font-size:larger;height: 30px; width:90px;background-color: yellow;color:red;" type="submit" value="Login"/></td>
+							</tr>
+						</table>
+					</form>
+					<div id="text" hidden><p> This is a search feature...</p></div>
+				</td>
+				<td width="20%" colspan="2"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="3" class="show-vals"></td>
+			</tr>
+
+
+		</table>
+
+		<br><br><br>
+		<hr size="4" color="blue"/>
+	</center>
+</body>
+</html>
