@@ -37,5 +37,17 @@ CREATE TABLE certified_by(
     FOREIGN KEY (Module_number) REFERENCES PVModule(Module_number),
     FOREIGN KEY (Lab_name) REFERENCES Testing_lab(Lab_name));
     
+/*Middle table between PVModule and the manufacturer*/
 DROP TABLE IF EXISTS
-	;
+	built_by;
+CREATE TABLE built_by(
+	Module_number varchar(40), Manu_name varchar(40), Manufacturer_Location varchar(40), Manufactured_date date,
+    FOREIGN KEY(Module_number) REFERENCES PVModule(Module_number),
+    FOREIGN KEY(Manu_name) REFERENCES Manufacturer(Manu_name));
+    
+/*The weak relationship between PVmodule and Bypass diode*/
+DROP TABLE IF EXISTS
+	module_diode;
+CREATE TABLE module_diode(
+	Module_number varchar(40), Model_number int, Rating int, Max_junction_temp varchar(20),
+    FOREIGN KEY (module_number) REFERENCES PVModule(Module_number));
