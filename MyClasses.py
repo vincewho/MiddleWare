@@ -402,9 +402,15 @@ class Product(object):
 		return self._ratedff 
 
 	def getAll(self):
-		sub = {
-				
-				
+		sub = {"modelNumber": self.getModelNumber(), "manufacturer": self.getManufacturer(), "manufacturingDate":self.manufacturingDate(),\
+				"length":self.length(),"width":self.getWidth(), "weight":self.getWieght(), "cellarea":self.getCellArea(),\
+				"celltechnology":self.getCellTechnology(),"totalnumberofcells":self.getTotalNumberofCells(), "cellsinseries":self.getCellsinSeries(),\
+				"numberofSeriesStrings":self.getSeriesStrings(), "bypassdiodes":self.getnumberofbypassdiodes(), "seriesfuserating":self.getseriesfuserating(),\
+				"interconnectmaterial":self.getinterconnectmaterial(),"interconnectsupplier":self.getinterconnectsupplier(), "superstratetype":self.getsuperstratetype(),\
+				"superstratemanufacturer":self.getsuperstratemanufacturer(), "junctionboxtype":self.getjunctionboxtype(), "junctionboxmanufacturer":self.getjunctionboxmanufacturer(),\
+				"junctionboxadhesive":self.getjunctionboxadhesive(),"cabletype":self.getcabletype(), "connnectortype":self.getconnnectortype(), "maxsysvoltage":self.getmaxsysvoltage(),\
+				"ratedvoc":self.getratedvoc(), "ratedisc":self.getratedisc(),"ratedvmp":self.getratedvmp(), "ratedimp":self.getratedimp(), "ratedpmp":self.getratedpmp(),\
+				"ratedff":self.getratedff()\
 			}  
 
 		return sub		
