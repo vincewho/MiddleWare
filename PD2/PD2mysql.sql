@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS
 	Middleware;
 
 CREATE DATABASE MiddleWare;
+GO
 USE Middleware;
 
 DROP TABLE IF EXISTS
@@ -41,4 +42,11 @@ CREATE TABLE test(
 	Module_number varchar(40), Lab_name varchar(20), Test_date date, Tester_name varchar(20), NOCT int, ISC int, VOC int, PMP int, FF int, VMP int, IMP int, Verdict varchar(10),
     FOREIGN KEY (Module_number) REFERENCES PVModule(Module_number),
     FOREIGN KEY (Lab_name) REFERENCES Testing_lab(Lab_name));
-    
+
+/*Middle table between PVMOdule and Manufacturer*/
+DROP TABLE IF EXISTS
+	manu_middle;
+CREATE TABLE manu_middle(
+	Module_number varchar(40), Manu_name varchar(40), Manufacturer_location varchar(40), Manufatured_date date,
+    FOREIGN KEY (Module_number) REFERENCES PVModule(Module_number),
+    FOREIGN KEY (Manu_name) REFERENCES Manufacturer(Manu_name));
