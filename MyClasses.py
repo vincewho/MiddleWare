@@ -12,6 +12,7 @@ class DBModule(object):
 
 	def connect_db(self, user='root', db='solarPV'):
 		con = MySQLdb.connect(user=user, db=db, passwd="root")
+        # passwd can also be 'Thepasswordisroot1!'
 		return con
 
 	def create_table(self, sql_str):
@@ -68,8 +69,8 @@ class Manufacturer(object):
 	def getAll(self):
 		sub = {
 				"name":self.getName(), "registeredCountry":self.getRegisteredCountry(), "ContactPerson":self.getContactPerson()\
-				
-			}  
+
+			}
 
 		return sub
 
@@ -103,11 +104,11 @@ class TestLab(object):
 	def getAll(self):
 		sub = {
 				"name":self.getName(), "address":self.getaddress(), "ContactPerson":self.getContactPerson()\
-				
-			}  
+
+			}
 
 		return sub
-		
+
 class User(object):
 	def __init__(self, record):
 		self._username = record["Username"]
@@ -172,7 +173,7 @@ class User(object):
 
 	def getCellPhone(self):
 		return self._cellphone
-	
+
 	def getOfficePhone(self):
 		return self._officephone
 
@@ -184,7 +185,7 @@ class User(object):
 				"username":self.getUsername(), "password":self.getPassword(), "firstname":self.getFirstName(),\
 				"middlename":self.getMiddleName(), "lastname":self.getLastName(), "address":self.getAddress(),\
 				"cellphone":self.getCellPhone(),"officephone":self.getOfficePhone(), "email":self.getEmail()\
-			}  
+			}
 
 		return sub
 
@@ -203,10 +204,10 @@ class Product(object):
 		self._numberofSeriesStrings = record["Number of Series Strings"]
 		self._numberofbypassdiodes = record["Number of Bypass Diodes"]
 		self._seriesfuserating = record["Series Fuse Rating"]
-		self._interconnectmaterial = record["Interconnect Material"]		
+		self._interconnectmaterial = record["Interconnect Material"]
 		self._interconnectsupplier = record["Interconnect Supplier"]
 		self._superstratetype= record["SuperstrateType"]
-		self._superstratemanufacturer = record["Superstrate Manufacturer"]		
+		self._superstratemanufacturer = record["Superstrate Manufacturer"]
 		self._junctionboxtype = record["Junction Box Type"]
 		self._junctionboxmanufacturer = record["Junction Box Manufacturer"]
 		self._junctionboxadhesive = record["Junction Box Adhesive"]
@@ -219,7 +220,7 @@ class Product(object):
 		self._ratedimp = record["Rated IMP"]
 		self._ratedpmp = record["Rated PMP"]
 		self._ratedff = record["Rated FF"]
-		
+
 	# Defining setters
 
 	def setModelNumber(self, modelnumber):
@@ -230,7 +231,7 @@ class Product(object):
 
 	def setManufacturingDate(self, mdate):
 		self._manufacturingdate = mdate
-		
+
 	def setLength(self, length):
 		self._length = length
 
@@ -251,7 +252,7 @@ class Product(object):
 
 	def	setCellsinSeries(self, numberofCellsinaSeries):
 		self._numberofCellsinaSeries = numberofCellsinaSeries
-	
+
 	def setSeriesStrings(self, numberofSeriesStrings):
 		self._numberofSeriesStrings = numberofSeriesStrings
 
@@ -263,13 +264,13 @@ class Product(object):
 
 	def	setinterconnectmaterial(self, interconnectmaterial):
 		self._interconnectmaterial = interconnectmaterial
-	
+
 	def setinterconnectsupplier(self, interconnectsupplier):
 		self._interconnectsupplier = interconnectsupplier
-		
+
 	def	setsuperstratetype(self, superstratetype):
 		self._superstratetype = superstratetype
-	
+
 	def setsuperstratemanufacturer(self, superstratemanufacturer):
 		self._superstratemanufacturer = superstratemanufacturer
 
@@ -281,7 +282,7 @@ class Product(object):
 
 	def	setjunctionboxadhesive(self, junctionboxadhesive):
 		self._junctionboxadhesive = junctionboxadhesive
-	
+
 	def cabletype(self, cabletype):
 		self._cabletype = cabletype
 
@@ -293,25 +294,25 @@ class Product(object):
 
 	def	setratedvoc(self, ratedvoc):
 		self._ratedvoc = ratedvoc
-	
+
 	def setratedisc(self, ratedisc):
 		self._ratedisc = ratedisc
 
 	def setratedvmp (self, ratedvmp ):
-		self._ratedvmp  = ratedvmp 
+		self._ratedvmp  = ratedvmp
 
 	def	setratedimp(self, ratedimp):
 		self._ratedimp = ratedimp
-	
+
 	def	setratedpmp(self, ratedpmp):
 		self._ratedpmp = ratedpmp
-	
+
 	def setratedff(self, ratedff):
 		self._ratedff = ratedff
 
-	
-	
-		
+
+
+
 	# Defining getters
 
 	def getModelNumber(self):
@@ -322,15 +323,15 @@ class Product(object):
 
 	def getManufacturingDate(self):
 		return self._manufacturingdate
-		
+
 	def getLength(self, length):
-		return self._length 
+		return self._length
 
 	def getWidth(self, width):
-		return self._width 
+		return self._width
 
 	def getWeight(self, weight):
-		return self._weight 
+		return self._weight
 
 	def getCellArea(self, cellarea):
 		return self._cellarea
@@ -339,67 +340,67 @@ class Product(object):
 		return self._celltechnology
 
 	def getTotalNumberofCells(self, totalnumberofcells):
-		return self._totalnumberofcells 
+		return self._totalnumberofcells
 
 	def	getCellsinSeries(self, numberofCellsinaSeries):
-		return self._numberofCellsinaSeries 
-	
+		return self._numberofCellsinaSeries
+
 	def getSeriesStrings(self, numberofSeriesStrings):
-		return self._numberofSeriesStrings 
+		return self._numberofSeriesStrings
 
 	def getnumberofbypassdiodes(self,bypassdiodes):
-		return self._numberofbypassdiodes 
+		return self._numberofbypassdiodes
 
 	def getseriesfuserating(self, seriesfuserating):
-		return self._seriesfuserating 
+		return self._seriesfuserating
 
 	def	getinterconnectmaterial(self, interconnectmaterial):
-		return self._interconnectmaterial 
-	
+		return self._interconnectmaterial
+
 	def getinterconnectsupplier(self, interconnectsupplier):
-		return self._interconnectsupplier 
-		
+		return self._interconnectsupplier
+
 	def	getsuperstratetype(self, superstratetype):
-		return self._superstratetype 
-	
+		return self._superstratetype
+
 	def getsuperstratemanufacturer(self, superstratemanufacturer):
 		return self._superstratemanufacturer
 
 	def getjunctionboxtype(self, junctionboxtype):
-		return self._junctionboxtype 
+		return self._junctionboxtype
 
 	def getjunctionboxmanufacturer(self, junctionboxmanufacturer):
-		return self._junctionboxmanufacturer 
+		return self._junctionboxmanufacturer
 
 	def	getjunctionboxadhesive(self, junctionboxadhesive):
-		return self._junctionboxadhesive 
-	
+		return self._junctionboxadhesive
+
 	def getcabletype(self, cabletype):
-		return self._cabletype 
-		
+		return self._cabletype
+
 	def getconnnectortype(self, connnectortype):
-		return self._connnectortype 
+		return self._connnectortype
 
 	def getmaxsysvoltage(self, maxsysvoltage):
 		return self._maxsysvoltage
 
 	def	getratedvoc(self, ratedvoc):
 		return self._ratedvoc
-	
+
 	def getratedisc(self, ratedisc):
 		return self._ratedisc
 
 	def getratedvmp (self, ratedvmp ):
-		return self._ratedvmp  
+		return self._ratedvmp
 
 	def	getratedimp(self, ratedimp):
-		return self._ratedimp 
-	
+		return self._ratedimp
+
 	def	getratedpmp(self, ratedpmp):
 		return self._ratedpmp
-	
+
 	def getratedff(self, ratedff):
-		return self._ratedff 
+		return self._ratedff
 
 	def getAll(self):
 		sub = {"modelNumber": self.getModelNumber(), "manufacturer": self.getManufacturer(), "manufacturingDate":self.manufacturingDate(),\
@@ -411,10 +412,10 @@ class Product(object):
 				"junctionboxadhesive":self.getjunctionboxadhesive(),"cabletype":self.getcabletype(), "connnectortype":self.getconnnectortype(), "maxsysvoltage":self.getmaxsysvoltage(),\
 				"ratedvoc":self.getratedvoc(), "ratedisc":self.getratedisc(),"ratedvmp":self.getratedvmp(), "ratedimp":self.getratedimp(), "ratedpmp":self.getratedpmp(),\
 				"ratedff":self.getratedff()\
-			}  
+			}
 
-		return sub		
-		
+		return sub
+
 class TestResults(object):
 	def __init__(self, TestLab, Product, record):
 		self._datasource = TestLab
@@ -453,7 +454,7 @@ class TestResults(object):
 
 	def setIMP(self, imp):
 		self._imp = imp
-		
+
 	def setVMP(self, vmp):
 		self._vmp = vmp
 
@@ -491,7 +492,7 @@ class TestResults(object):
 
 	def getIMP(self):
 		return self._imp
-		
+
 	def getVMP(self):
 		return self._vmp
 
@@ -508,6 +509,6 @@ class TestResults(object):
 		sub = {"dataSource": self.getDatasource(), "product": self.getproduct(), "reportingCondition":self.reportingCondition(),\
 				"TestSequence":self.getTestSequence(),"TestDate":self.getTestDate(), "ISC":self.getISC(), "VOC":self.getVOC(),\
 				"IMP":self.getIMP(),"VMP":self.VMP(), "PMP":self.getPMP(), "FF":self.getFF(), "NOCT":self.getNOCT()\
-				}  
+				}
 
 		return sub
