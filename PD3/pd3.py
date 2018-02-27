@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 
-import csv
-import sys
+import csv, sys
 from collections import defaultdict
 
 class importResults(object):
-
-
 
     def __init__(self, model='',test_seq='',condition='',date='',isc='',voc='',imp='',vmp='',ff='',pmp=''):
     	self.__model = model
@@ -82,11 +79,23 @@ class importResults(object):
     	return self.__pmp
   
 #  	def makeDict(self, data):
-filename = sys.argv[1]
-infile = open('test_results.csv', 'r')
-data = csv.DictReader(infile)
-s=[]
-i = 0  
-for record in data:
-  s.insert(i, importResults(record['Model'], record['Test Sequence'], record['Condition'], record['Date'], record['Isc'], record['Voc'], record['Imp'], record['Vmp'], record['FF'], record['Pmp']))
-  i += 1
+
+def main():
+
+  filename = sys.argv[1]
+  infile = open('test_results.csv', 'r')
+  data = csv.DictReader(infile)
+  s=[]
+  i = 0  
+  
+  for record in data:
+    s.insert(i, importResults(record['Model'], record['Test Sequence'], record['Condition'], record['Date'], record['Isc'], record['Voc'], record['Imp'], record['Vmp'], record['FF'], record['Pmp']))
+    i += 1
+  
+  sys.stdout.write("Model\tTest_Sequence\tCondition\tDate\tISC\tVOC\tIMP\tVMP\tFF\tPMP\n")      
+  
+  for i in range(len(s)):
+    sys.stdout.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' % (s[i].getModel(),s[i].getTest_seq(),s[i].getCondition(),s[i].getDate(),s[i].getIsc(),s[i].getVoc(),s[i].getImp(),s[i].getVmp(),s[i].getFF(),s[i].getPmp()))
+    #sys.stdout.write('%s\t%s\n' % (s[i].getModel(), s[i].getTest_seq()))
+#########################################################
+main()
