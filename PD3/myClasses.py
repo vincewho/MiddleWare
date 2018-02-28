@@ -106,7 +106,7 @@ class User(object):
 
 ###### This is the testlab object ######
 class TestLab(object):
-	def __init__(self, name='testlab', addy='123 Hello Wr', contact='Default Person'):
+	def __init__(self, name='testlab', addy='123 Hello Wr', contact=[]):
 		self.__name = name
 		self.__addy = addy
 		self.__contact = contact
@@ -363,6 +363,106 @@ class Product(object):
 			}
 
 		return sub
+		
+class TestResults(object):
+	def __init__(self,record, dataSource="Test Lab", noct=0):
+		self.__dataSource = dataSource
+		self.__product = record["Model"]
+		self.__reportingCondition = record["Condition"]
+		self.__testSequence = record["Test Sequence"]
+		self.__testDate = record["Date"]
+		self.__isc = record["Isc"]
+		self.__voc = record["Voc"]
+		self.__imp = record["Imp"]
+		self.__vmp = record["Vmp"] 
+		self.__pmp = record["Pmp"]
+		self.__ff = record["FF"]
+		self.__noct = noct
+
+	# Defining setters
+
+	def setDataSource(self, dataSource):
+		self.__dataSource = dataSource
+
+	def setProduct(self, product):
+		self.__product = product
+
+	def setReportingConditon(self, reportingCondition):
+		self.__reportingCondition = reportingCondition
+
+	def setTestSequence(self, testSequence):
+		self.__testSequence = testSequence
+
+	def setTestDate(self, testDate):
+		self.__testDate = testDate
+
+	def setIsc(self, isc):
+		self.__isc = isc
+
+	def setVoc(self, voc):
+		self.__voc = voc
+
+	def setImp(self, imp):
+		self.__imp = imp
+
+	def setVmp(self, vmp):
+		self.__vmp = vmp
+
+	def setPmp(self, vmp):
+		self.__vmp = vmp
+
+	def setFF(self, ff):
+		self.__ff = ff
+
+	def setNoct(self, noct):
+		self.__noct = noct
+
+	# Define Getters
+
+	def getDataSource(self):
+		return self.__dataSource
+
+	def getProduct(self):
+		return self.__product
+
+	def getReportingConditon(self):
+		return self.__reportingCondition
+
+	def getTestSequence(self):
+		return self.__testSequence
+
+	def getTestDate(self):
+		return self.__testDate
+
+	def getIsc(self):
+		return self.__isc
+
+	def getVoc(self):
+		return self.__voc
+
+	def getImp(self):
+		return self.__imp
+
+	def getVmp(self):
+		return self.__vmp
+
+	def getPmp(self):
+		return self.__vmp
+
+	def getFF(self):
+		return self.__ff
+
+	def getNoct(self):
+		return self.__noct
+
+	def getAll(self):
+		sub = {
+			"product":self.getProduct(), "reporting":self.getReportingCondition(),
+			"testSequence":self.getTestSequence(), "testDate":getTestDate(),
+			"isc":self.getIsc(), "voc":self.getVoc(),"Imp":self.getImp(),
+			"Vmp":self.getVmp(), "pmp":self.getPmp(), "ff":self.getFF(), "noct":self.getNoct()
+		}
+		return sub		
 ####################################################################################
 
 manu1 = manufacturer('James Boa')

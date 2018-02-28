@@ -3,9 +3,12 @@
 import csv
 import sys
 from collections import defaultdict
-import os #use os.sys('clear') to clear terminal
+import os #use os.system('clear') to clear terminal
+import datetime
 
-import myClasses.py #import the classes
+import the classes
+from myClasses import manufacturer 
+from myClasses import Product
 
 def createDict(csv_file):
 	lab_dict = defaultdict(list)
@@ -208,6 +211,8 @@ def addUser():
 #(first contacat person, then manufacturer, then product)
 
 def main():
+
+	MDS = addPV()
 	
 	#instantiate the contact person
 	c = MDS.get('Contact')
@@ -218,55 +223,61 @@ def main():
 	
 	#instantiate the Manfacturer
 	mname = MDS.get('Manufacturer')
-	country = 'US'
+	country = MDS.get('Location')
 	man1 = manufacturer(mname, country, contact)
 	
+	#to use datetime function
+	i = datetime.datetime.now()
+	
 	#instantiate the product
-	mnum = MDS.get()
-	mdate = 
-	len =
-	wdh =
-	wgt =
-	cellarea = 
-	celltec =
-	numcell =
-	numcellseries =
-	numstring =
-	numbypass=
-	fuserating = 
-	intermat =
-	intersup =
-	suptype=
-	supman =
-	subtype =
-	subman =
-	framemat =
-	frameadh =
-	entype =
-	enman =
-	jbtype =
-	jbman = 
-	jbad =
-	cabtype =
-	contype =
-	maxsys =
-	rvoc =
-	risc =
-	rvmp =
-	rimp =
-	rpmp =
-	rff =
-	pv1 = Product(mnum, man1, mdate, len, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
+	mnum = MDS.get('Model Number')
+	mname = MDS.get('Manfacturer')
+	mdate = "%s/%s/%s" % (i.day, i.month, i.year) )
+	length = MDS.get('Module lxw')
+	length = length.split('x')[0]
+	wdh = MDS.get('Module lxw')
+	wdh = length.split('x')[1]
+	wgt = MDS.get('Module Weight')
+	cellarea = MDS.get('Individual Cell Area')
+	celltec = MDS.get('Cell Technology')
+	numcell = MDS.get('Total number of cells')
+	numcellseries = MDS.get('Number of cells in a series')
+	numstring = MDS.get('Number of series strings')
+	numbypass= MDS.get('Number of bypass diodes')
+	fuserating = MDS.get('Series fuse rating')
+	intermat = MDS.get('Innterconnect material')
+	intersup = MDS.get('Cell Manufacturer')
+	suptype= MDS.get('Superstrate Type')
+	supman = MDS.get('Superstrate Manufacturer')
+	subtype = MDS.get('Substrate Type')
+	subman = MDS.get('Substrate Manufacturer')
+	framemat = MDS.get('Frame Type')
+	frameadh = MDS.get('Frame adhesive')
+	entype = MDS.get('Encapsulant Type')
+	enman = MDS.get('Encapsulant Manufacturer')
+	jbtype = MDS.get('Junction Box Type')
+	jbman = MDS.get('Junction box manufacturer')
+	jbad = MDS.get('Junction box adhesive')
+	cabtype = MDS.get('Cable & Connector type')
+	contype = MDS.get('Cable & Connector type')
+	maxsys = MDS.get('Maximum system voltage')
+	rvoc = MDS.get('voc')
+	risc = MDS.get('isc')
+	rvmp = MDS.get('vmp')
+	rimp = MDS.get('imp')
+	rpmp = MDS.get('pmp')
+	rff = MDS.get('ff')
+	
+	pv1 = Product(mnum, man1, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
 	
 	print "-----Product Information-----"
 	print ""
 	print "Manufacturer Name: " + pv1.getManufacturer()
-	print "Contact Name: "  
-	print "Contact Email: "
-	print "Model Number: "
-	print "Cell Technology: "
-	print "System Voltage: "
-	print "Rated Power (PMP): "
+	print "Contact Name: " + contact[0] 
+	print "Contact Email: " + contact[1]
+	print "Model Number: " + pv1.getModelNumber()
+	print "Cell Technology: " + pv1.getCellTechnology()
+	print "System Voltage: " +  pv1.getmaxsysvoltage()
+	print "Rated Power (PMP): " pv1.getratedpmp()
 
-
-	
+main()
