@@ -4,6 +4,7 @@ import csv
 import sys
 from collections import defaultdict
 import os #use os.system('clear') to clear terminal
+
 #import datetime
 
 #import the classes
@@ -17,6 +18,7 @@ from myClasses import Product
 import re
 
 
+####################################### Read in CSV file ####################################### 
 def createDict(csv_file):
 	lab_dict = defaultdict(list)
 
@@ -28,7 +30,10 @@ def createDict(csv_file):
 csv_file = 'test_results.csv'
 data = createDict(csv_file)
 dict_list = [row for row in data]
+#To see the list, uncomment the line below:
+#print csv_dict
 
+####################################### VALIDATORS ####################################### 
 def validateEmail(enteredEmail):
 	validator = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 	if len(enteredEmail) > 7:
@@ -164,320 +169,377 @@ def validatebox(value):
 	else:
 		print("Invalid. Example Format: PV-RH050BV")
 		return False	
-		
-#To see the list, uncomment the line below:
-#print csv_dict
 
-#this function gets input from maufacturer and returns the data in a  dictionary
+####################################### Clear Screens ####################################### 
+def ClearUser():
+		os.system('clear')
+        	print "----------------NEW USER REGISTRATION---------------"
+			print ""
+			
+def ClearMDS():
+		os.system('clear')
+		print "----------------MDS FORM---------------"
+		print ""
+		
+def ClearProduct():
+		os.system('clear')
+		print "----------Product Information-----------"
+		print ""
+
+		
+#REGISTER PV MODULE MDS FORM : this function gets input and returns the data in a  dictionary
 def addPV():	
 	#list of input fields
 	keys = ['Manufacturer', 'Location', 'Contact','Address','Email', 'Phone', 'Model Number', 'Module lxw', 'Module Weight', 'Individual Cell Area', 'Cell Technology','Cell Manufacturer','Cell Manufactureing Location','Total number of cells', 'Number of cells in a series','Number of series strings','Number of bypass diodes', 'Bypass diode rating', 'Bypass diode max junct temp', 'Series fuse rating', 'Innterconnect material', 'Interconnect dimensions', 'Superstrate type', 'Superstrate Manufacturer', 'Substrate Type', 'Substrate Manufacturer', 'FrameType' ,'Frame adhesive', 'Encapsulant Type','Encapsulant Manufacturer', 'Junction Box Type', 'Junction box manufacturer', 'Junction box potting material', 'Junction box adhesive', 'Junction Box Use Intention', 'Cable & Connector type', 'Maximum system voltage', 'voc', 'isc', 'vmp', 'imp', 'pmp', 'ff' ]
 	#empty list which will hold user input
 	datalist = []
 	
+	ClearMDS()
 	man = raw_input("Manufacturer: ")
 	while validateString(man) is False:
 		man = raw_input("Re-enter Manufacturer: ")
 	datalist.append(man)
 	
+	ClearMDS()
 	loc = raw_input("Location: ")
 	while validateString(loc) is False:
 		loc = raw_input("Re-enter Location: ")
 	datalist.append(loc)
 
+	ClearMDS()
 	cont = raw_input("Contact: ")
 	while validateString(cont) is False:
 		cont = raw_input("Re-enter Contact: ")
 	datalist.append(cont)
 
+	ClearMDS()
 	addr = raw_input("Address: ")
 	while validateAddress(addr) is False:
 		addr = raw_input("Re-enter Address: ")
 	datalist.append(addr)
-
+	
+	ClearMDS()
 	email = raw_input("Email: ")
 	while validateEmail(email) is False:
 		email = raw_input("Re-enter Email: ")
 	datalist.append(email)
-
+	
+	ClearMDS()
 	phone = raw_input("Phone: ")
 	while validatePhone(phone) is False:
 		phone = raw_input("Re-enter phone: ")
 	datalist.append(phone)
-
+	
+	ClearMDS()
 	mnum = raw_input("Model Number: ")
 	while validateInt(mnum) is False:
 		mnum = raw_input("Re-enter Model Number: ")
 	datalist.append(mnum)
-
+	
+	ClearMDS()
 	mlxw = raw_input("Module total length x width (cmxcm): ")
 	while validateDimension(mlxw) is False:	
 		mlxw = raw_input("Re-enter Module total length x width (cmxcm): ")
 	datalist.append(mlxw)
-
+	
+	ClearMDS()
 	mwgt = raw_input("Module weight(kg): ")
 	while validateFloat(mwgt) is False:
 		mwgt = raw_input("Re-enter Module weight(kg): ")
 	datalist.append(mwgt)
 
+	ClearMDS()
 	icarea = raw_input("Individual Cell Area(cm^2): ")
 	while validateFloat(icarea) is False:
 		icarea = raw_input("Re-enter Individual Cell Area(cm^2): ")
 	datalist.append(icarea)
 	
+	ClearMDS()
 	ctech = raw_input ("Cell Technology: ")
 	while validateString(ctech) is False:
 		ctech = raw_input ("Re-enter Cell Technology: ")
 	datalist.append(ctech)
 	
+	ClearMDS()
 	cmanpt = raw_input("Cell Manufacturer and Part#: ")
 	while validateAlphaNum(cmanpt) is False:
 		cmanpt = raw_input("Re-enter Cell Manufacturer and Part#: ")
 	datalist.append(cmanpt)
 
+	ClearMDS()
 	cmanloc = raw_input("Cell Manufacturing Location: ")
 	while validateString(cmanloc) is False:
 		cmanloc = raw_input("Re-enter Cell Manufacturing Location: ")
 	datalist.append(cmanloc)
 
+	ClearMDS()
 	totcell = raw_input("Total number of cells: ")
 	while validateInt(totcell) is False:
 		totcell = raw_input("Re-enter Total number of cells: ")
 	datalist.append(totcell)
 
+	ClearMDS()
 	cseries = raw_input("Number of cells in series: ")
 	while validateInt(cseries) is False:
 		cseries = raw_input("Re-enter Number of cells in series: ")
 	datalist.append(cseries)
 
+	ClearMDS()
 	serstg = raw_input("Number of series strings: ")
 	while validateInt(serstg) is False:
 		serstg = raw_input("Re-enter Number of series strings: ")
 	datalist.append(serstg)
 
+	ClearMDS()
 	bydid = raw_input("Number of bypass diodes: ")
 	while validateInt(bydid) is False:
 		bydid = raw_input("Re-enter Number of bypass diodes: ")
 	datalist.append(bydid)
 
+	ClearMDS()
 	bdrateA = raw_input("Bypass diode rating(A): ")
 	while validateRating(bdrateA) is False:
 		bdrateA = raw_input("Re-enter Bypass diode rating(A): ")
 	datalist.append(bdrateA)
 
+	ClearMDS()
 	juntemp = raw_input("Bypass diode max junction temp(C): ")
 	while validateInt(juntemp) is False:
 		juntemp = raw_input("Re-enter Bypass diode max junction temp(C): ")
 	datalist.append(juntemp)
 
+	ClearMDS()
 	sfratingA = raw_input("Series Fuse Rating(A): ")
 	while validateInt(sfratingA) is False:
 		sfratingA = raw_input("Re-enter Series Fuse Rating(A): ")
 	datalist.append(sfratingA)
 
+	ClearMDS()
 	matsup = raw_input("Interconnect material and supplier model no.: ")
 	while validateAlphaNum(matsup) is False:
 		matsup = raw_input("Re-enter Interconnect material and supplier model no.: ")
 	datalist.append(matsup)
 
+	ClearMDS()
 	dimen = raw_input("Interconnect dimensions(mm x mm): ")
 	while validateDimension(dimen) is False:
 		dimen =  raw_input("Re-enter Interconnect dimensions(mm x mm): ")
 	datalist.append(dimen)
 
+	ClearMDS()
 	suptype = raw_input("Superstrate Type: ")
 	while validateString(suptype) is False:
 		suptype = raw_input("Re-enter Superstrate Type: ")
 	datalist.append(suptype)
-	
+
+	ClearMDS()
 	supmanpt = raw_input("Superstrate Manfacturer and part#: ")
 	while validateAlphaNum(supmanpt) is False:
 		supmanpt = raw_input("Re-enter Superstrate Manfacturer and part#: ")
 	datalist.append(supmanpt)
 
+	ClearMDS()
 	subtype = raw_input("Substrate Type: ")
 	while validateSub(subtype) is False:
 		subtype = raw_input("Re-enter Substrate Type: ")
 	datalist.append(subtype)
 
+	ClearMDS()
 	submanpt = raw_input("Substrate Manufacturer and part#: ")
 	while validateAlphaNum(submanpt) is False:
 		submanpt = raw_input("Re-enter Substrate Manufacturer and part#: ")
 	datalist.append(submanpt)
 
+	ClearMDS()
 	frametype = raw_input("Frame Type and Material: ")
 	while validateString(frametype) is False:
 		frametype = raw_input("Re-enter Frame Type and Material: ")
 	datalist.append(frametype)
 
+	ClearMDS()
 	framead = raw_input("Frame adhesive: ")
 	while validateAlphaNum(framead) is False:
 		framead = raw_input("Re-enter Frame adhesive: ")
 	datalist.append(framead)
 
+	ClearMDS()
 	encaptype = raw_input("Encapsulant Type: ")
 	while validateSub(encaptype) is Flase:
 		encaptype = raw_input("Re-enter Encapsulant Type: ")
 	datalist.append(encaptype)
 
+	ClearMDS()
 	encapmanpt = raw_input("Encapsulant Manufacturer and part#: ")
 	while validateAlphaNum(encapmanpt) is False:
 		encapmanpt = raw_input("Encapsulant Manufacturer and part#: ")
 	datalist.append(encapmanpt)
 
+	ClearMDS()
 	junboxtype = raw_input("Junction box type: ")
 	while validatebox(junboxtype) is False:
 		junboxtype = raw_input("Re-enter Junction box type: ")
 	datalist.append(junboxtype)
 
+	ClearMDS()
 	junboxmanpt = raw_input("Junction box manufacturer and part#: ")
 	while validateAlphaNum(junboxmanpt) is False:
 		junboxmanpt = raw_input("Re-enter Junction box manufacturer and part#: ")
 	datalist.append(junboxmanpt)
 
+	ClearMDS()
 	junboxpot = raw_input("Junction box potting material, if any: ")
 	while validateString(junboxpot) is False:
 		junboxpot = raw_input("Re-enter Junction box potting material, if any: ")
 	datalist.append(junboxpot)
 
+	ClearMDS()
 	junboxadh = raw_input("Junction box adhesive: ")
 	while validateAlphaNum(junboxadh) is False:
 		junboxadh = raw_input("Re-enter Junction box adhesive: ")
 	datalist.append(junboxadh)
 
+	ClearMDS()
 	junboxuse = raw_input("Is junction box intended for use with Conduit?: ")
 	while validateString(junboxuse) is False:
 		junboxuse = raw_input("Re-enter - Is junction box intended for use with Conduit?: ")
 	datalist.append(junboxuse)
 
+	ClearMDS()
 	cabcontype = raw_input("Cable & Connector Type: ")
 	while validateAlphaNum(cabcontype) is False:
 		cabcontype = raw_input("Re-enter Cable & Connector Type: ")
 	datalist.append(cabcontype)
 
+	ClearMDS()
 	maxsysvol = raw_input("Max system voltage(V): ")
 	while validateInt(maxsysvol) is False:
 		maxsysvol = raw_input("Max system voltage(V): ")
 	datalist.append(maxsysvol)
 
+	ClearMDS()
 	voc = raw_input("Voc(V): ")
 	while validateFloat(voc) is False:
 		voc = raw_input("Re-enter Voc(V): ")
 	datalist.append(voc)
 
+	ClearMDS()
 	isc = raw_input("Isc(A): ")
 	while validateFloat(isc) is False:
 		isc = raw_input("Re-enter Isc(A): ")
 	datalist.append(isc)
 
+	ClearMDS()
 	vmp = raw_input("Vmp(V): ")
 	while validateFloat(vmp) is False:
 		vmp = raw_input("Re-enter Vmp(V): ")
 	datalist.append(vmp)
 
+	ClearMDS()
 	imp = raw_input("Imp(A): ")
 	while validateFloat(imp) is False:
 		imp = raw_input("Re-enter Imp(A): ")
 	datalist.append(imp)
 
+	ClearMDS()
 	pmp = raw_input("Pmp(W): ")
 	while validateInt(pmp) is False:
 		pmp = raw_input("Re-enter Pmp(W): ")
 	datalist.append(pmp)
 
+	ClearMDS()
 	ff = raw_input("FF(%): ")
 	while validateInt(ff) is False:
 		ff = raw_input("Re-enter FF(%): ")
 	datalist.append(ff)
+	
+	os.system('clear')
 
 	#zip to combine both lists into a dictionary
 	return dict(zip(keys, datalist))
 
+#REGISTER USER: this function gets input and returns the data in a  dictionary	
 def addUser():	
 	#list of input fields
 	keys = ['Username','Password','First Name', 'Middle Name', 'Last Name', 'Company Name', 'Company Type', 'Address', 'Office Phone Number', 'Cell Phone Number', 'Email Address']
 	#empty list which will hold user input
 	datalist = []
 	
+	ClearUser()
 	uname = raw_input("Username: ")
 	while validateUserName(uname) is False:
 		uname = raw_input("Re-enter Username: ")
 	datalist.append(uname)
 	
+	ClearUser()
 	pword = raw_input("Password: ")
 	while validatePassword(pword) is False:
 		pword = raw_input("Re-enter Password: ")
 	datalist.append(pword)
 
+	ClearUser()
 	fname = raw_input("First Name: ")
 	while validateString(fname) is False:
 		fname = raw_input("Re-enter First Name: ")
 	datalist.append(fname)
-	
 
+	ClearUser()
 	mname = raw_input("Middle Name: ")
 	while validateString(mname) is False:
 		mname = raw_input("Re-enter Middle Name: ")
 	datalist.append(mname)
 
+	ClearUser()
 	lname = raw_input("Last Name: ")
 	while validateString(lname) is False:
 		lname = raw_input("Re-enter Last Name: ")	
 	datalist.append(lname)
 
+	ClearUser()
 	cname = raw_input("Company Name: ")
 	while validateString(cname) is False:
 		cname = raw_input("Re-enter Company Name: ")
 	datalist.append(cname)
 
+	ClearUser()
 	ctype = raw_input("Company Type(Test Lab or Manufacturer): ")
 	while validateCompany(ctype) is False:
 		ctype = raw_input("Re-enter Company Type(Test Lab or Manufacturer): ")
 	datalist.append(ctype)
 
+	ClearUser()
 	addr = raw_input("Address: ")
 	while validateAddress(addr) is False:
 		addr = raw_input("Re-enter Address: ")
 	datalist.append(addr)
 
+	ClearUser()
 	ophone = raw_input("Office phone number: ")
 	while validatePhone(ophone) is False:
 		ophone = raw_input("Re-enter Office phone number: ")
 	datalist.append(ophone)
 
+	ClearUser()
 	cphone = raw_input("Cell phone number: ")
 	while validatePhone(cphone) is False:
 		cphone = raw_input("Re-enter Cell phone number: ")
 	datalist.append(cphone)
-
+	
+	ClearUser()
 	email = raw_input("Email Address: ")
 	while validateEmail(email) is False:
 		email = raw_input("Re-enter Email Address: ")
 	datalist.append(email)
-
+	
+	os.system('clear')
+	
 	#zip to combine both lists into a dictionary
 	return dict(zip(keys, datalist))
 
 	
-#this function will get the MDS data and instantiate a product. 
-#(first contacat person, then manufacturer, then product)
+#The following functions will ultimately get the MDS data and instantiate a product. (first contacat person, then manufacturer, then product)
 
-def main():
-	print "\n"
-	print "*********************WELCOME**********************"
-	print ""
-	##reg form 
-	
-	##connnect database
-	##populate database
-	##close database
-	
-	print "----------------MDS FORM---------------"
-	print ""
-
-	MDS = addPV()
-
-	#instantiate the contact person using the User Class
+#instantiate the contact person using the User Class
+def createUser():
 	uname = ''
 	pword = ''
 	fname = MDS.get('Contact')
@@ -488,20 +550,18 @@ def main():
 	cphone = MDS.get('Phone')
 	email = MDS.get('Email')
 	u1 = User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
-	
-	#instantiate the Manfacturer
+
+#instantiate the manufacturer contact person
+def createManufacturer():
 	mname = MDS.get('Manufacturer')
 	country = MDS.get('Location')
 	man1 = manufacturer(mname, country, u1)
 	
-	#to use datetime function
-	#i = datetime.datetime.now()
-	
+def createProduct():
 	#instantiate the product
 	mnum = MDS.get('Model Number')
 	mname = MDS.get('Manufacturer')
 	mdate = 'Date'
-	#mdate = "%s/%s/%s" % (i.day, i.month, i.year) )
 	length = MDS.get('Module lxw')
 	wdh = MDS.get('Module lxw')
 	wgt = MDS.get('Module Weight')
@@ -536,7 +596,10 @@ def main():
 	rff = MDS.get('ff')
 	
 	pv1 = Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
-	
+		
+
+#function will print product information
+def productInformation():
 	print "----------Product Information-----------"
 	print ""
 	print "Manufacturer Name: " + str(pv1.getManufacturer())
@@ -547,6 +610,8 @@ def main():
 	print "System Voltage: " +  str(pv1.getmaxsysvoltage())
 	print "Rated Power (PMP): " + str( pv1.getratedpmp())
 
+#function will print baseline test result	
+def BaselineTestResults():
 	print "----------Baseline Test Results----------"
 	print ""
 	
@@ -566,7 +631,26 @@ def main():
 				print "Pmp:           " + test.getPmp()
 				print ""
 				print "-------------------------------------------------"  
-				print ""
+				print ""	
+
+def main():
+	print "\n"
+	print "*********************WELCOME**********************"
+	print ""
+	##reg form 
+	
+	##connnect database
+	##populate database
+	##close database
+	
+
+	UREG = addUser()
+	MDS = addPV()
+
+
+
+
+
 				
 	#data form
 	

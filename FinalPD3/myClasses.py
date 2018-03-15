@@ -261,7 +261,7 @@ class Product(object):
 	def setratedff(self, var29):
 		self.__ratedff = var29
 
-################## Defining getters
+################## Defining getters ################## 
 
 	def getModelNumber(self):
 		return self.__modelnumber
