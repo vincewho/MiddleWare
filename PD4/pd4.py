@@ -560,7 +560,7 @@ def createManufacturer():
 def createProduct():
 	#instantiate the product
 	mnum = MDS.get('Model Number')
-	mname = MDS.get('Manufacturer')
+	mname = man1.getContact().getFirstName()
 	mdate = 'Date'
 	length = MDS.get('Module lxw')
 	wdh = MDS.get('Module lxw')
