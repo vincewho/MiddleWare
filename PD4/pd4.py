@@ -449,7 +449,6 @@ def addUser():
 	while validatePhone(cphone) is False:
 		cphone = raw_input("Re-enter Cell phone number: ")
 	datalist.append(cphone)
-	
 
 	email = raw_input("Email Address: ")
 	while validateEmail(email) is False:
@@ -467,6 +466,12 @@ def main():
 	print "\n"
 	print "*********************WELCOME**********************"
 	print ""
+	##reg form 
+	
+	##connnect database
+	##populate database
+	##close database
+	
 	print "----------------MDS FORM---------------"
 	print ""
 
