@@ -36,14 +36,14 @@ dict_list = [row for row in data]
 ####################################### VALIDATORS ####################################### 
 def validateEmail(enteredEmail):
 	validator = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-	if len(enteredEmail) > 7:
+	if len(enteredEmail) > 7 and len(enteredEmail)<=40:
 		if re.match(validator, enteredEmail) is not None:
 			return enteredEmail
 		else:
 			print ("Invalid. Email format: user@example.com")
 			return False	
 	else:
-		print ("Invalid. Email length must be longer than 7 characters.")
+		print ("Invalid. Email length must be longer than 7 characters and no longer than 40 characters.")
 		return False
 
 def validatePhone(enteredPhone):
@@ -56,14 +56,14 @@ def validatePhone(enteredPhone):
 		
 def validateUserName(name):
 	validator = "^[A-Za-z0-9]+$"
-	if len(name) <= 20:
+	if len(name) <= 40:
 		if re.match(validator, name) is not None:
 			return name
 		else:
 			print ("Username must contain only letters and numbers.")
 			return False
 	else:
-		print ("Username must be less than 20 characters.")
+		print ("Username must be less than 40 characters.")
 		return False
 		
 def validatePassword(pword):
@@ -96,22 +96,26 @@ def validateCompany(ctype):
 		
 def validateAddress(addr):
 	validator = r"\d+\s[A-z]+\s[A-z]+"
-	if re.match(validator, addr) is not None:
-		return addr
+	if len(addr)<=40:
+		if re.match(validator, addr) is not None:
+			return addr
+		else:
+			print ("Invalid. Format: 1234 ExampleName Ave")
+			return False
 	else:
-		print ("Invalid. Format: 1234 ExampleName Ave")
+		print ("Invalid. Must be no longer than 40 characters.")
 		return False
 	
 def validateString(value):
 	validator = "^[a-zA-Z]+$"
-	if len(value) <= 20:
+	if len(value) <= 40:
 		if re.match(validator, value) is not None:
 			return value
 		else: 
 			print ("Invalid. Must contain only letters.")
 			return False 
 	else: 
-		print ("Invalid. Cannot exceed 20 characters.")
+		print ("Invalid. Cannot exceed 40 characters.")
 		return False 
 	
 def validateFloat(value):
@@ -633,8 +637,8 @@ def BaselineTestResults():
 				print "-------------------------------------------------"  
 				print ""	
 
-#function will print PD4 form
-def 
+#function will print Database
+def displayDatabase():
 
 def main():
 	print "\n"
