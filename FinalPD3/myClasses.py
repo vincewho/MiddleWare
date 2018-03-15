@@ -1,3 +1,46 @@
+import MySQLdb
+
+class DBModule(object):
+
+	'''
+	def __init__(self):
+		pass
+	'''
+
+	def create_db(self):
+		pass
+
+	def connect_db(self, user='root', db='mw'):
+		con = MySQLdb.connect(user=user, db=db, passwd="root")
+		return con
+
+	def create_table(self, sql_str):
+		cur.execute(sql_str)
+		return cur
+
+		#record is dict
+	def insert_data(self, tablename, cur, record):
+		placeholder = ','.join(['%s'] * len(record))
+		columns = ','.join(record.keys())
+		query_str = 'INSERT INTO %s (%s) VALUES (%s)' % (tablename, columns, placeholder)
+	#print query_str
+		#inserts the data
+		cur.execute(query_str, record.values())
+
+	def update_table(self):
+		pass
+
+	def delete_row(self):
+		pass
+
+	def select_rows(self):
+		pass
+
+	def drop_table(self):
+		pass
+
+
+
 class manufacturer(object):
 
     def __init__(self, name = 'default', country = 'US', contact = []):

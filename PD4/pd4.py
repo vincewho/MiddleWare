@@ -553,12 +553,47 @@ def createUser(UREG):
 	ophone = UREG.get('Office Phone Number')
 	cphone = UREG.get('Cell Phone Number')
 	email = UREG.get('Email Address')
+	
+#####################populate the database.#####################
+	
+	#create the connection to the database
+	mydb = MyClasses.DBModule()
+	con = mydb.connect_db()
+	cur = con.cursor()
+	
+	#insert the data
+	mydb.insert_data("User", cur, UREG[i])
+	con.commit()
+	
+	#close the connection
+	cur.close()
+	con.commit()
+	con.close()
+	
+	#return the object
 	return User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
 
 #instantiate the manufacturer contact person
 def createManufacturer(MDS, User):
 	mname = MDS.get('Manufacturer')
 	country = MDS.get('Location')
+	
+	#####################populate the database.#####################
+	
+	#create the connection to the database
+	mydb = MyClasses.DBModule()
+	con = mydb.connect_db()
+	cur = con.cursor()
+	
+	#insert the data
+	mydb.insert_data("manfacturer", cur, MDS[i])
+	con.commit()
+	
+	#close the connection
+	cur.close()
+	con.commit()
+	con.close()
+	
 	return manufacturer(mname, country, User)
 	
 def createProduct(MDS, man1):
@@ -599,11 +634,33 @@ def createProduct(MDS, man1):
 	rpmp = MDS.get('pmp')
 	rff = MDS.get('ff')
 	
+	
+	#create a dictionary for product
+	keys = ['Model Number', 'Manufacturer', 'Date', 'Module lxw', 'Module Weight', 'Individual Cell Area', 'Cell Technology',  'Total number of cells', 'Number of cells in a series', 'Number of bypass diodes', 'Series fuse rating', 'Innterconnect material', 'Cell Manufacturer', 'Superstrate Type', 'Superstrate Manufacturer', 'Substrate Type', 'Substrate Manufacturer', 'Frame Type', 'Frame adhesive', 'Encapsulant Type', 'Encapsulant Manufacturer', 'Junction Box Type', 'Junction box manufacturer', 'Junction box adhesive', 'Cable & Connector type', 'Cable & Connector type', 'Maximum system voltage', 'voc', 'isc', 'vmp', 'imp', 'ff'  ]
+	values = [mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff]
+	pvdict = dict(zip(keys, values))
+	
+	#####################populate the database.#####################
+	
+	#create the connection to the database
+	mydb = MyClasses.DBModule()
+	con = mydb.connect_db()
+	cur = con.cursor()
+	
+	#insert the data
+	mydb.insert_data("Product", cur, pvdict[i])
+	con.commit()
+	
+	#close the connection
+	cur.close()
+	con.commit()
+	con.close()
+	
 	return Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
 		
 
 #function will print product information
-def productInformation():
+def productInformation(pv1, u1):
 	print "----------Product Information-----------"
 	print ""
 	print "Manufacturer Name: " + str(pv1.getManufacturer())
@@ -612,7 +669,7 @@ def productInformation():
 	print "Model Number: " + str(pv1.getModelNumber())
 	print "Cell Technology: " + str(pv1.getCellTechnology())
 	print "System Voltage: " +  str(pv1.getmaxsysvoltage())
-	print "Rated Power (PMP): " + str( pv1.getratedpmp())
+	print "Rated Power (PMP): " + str(pv1.getratedpmp())
 
 #function will print baseline test result	
 def BaselineTestResults():
@@ -636,31 +693,48 @@ def BaselineTestResults():
 				print ""
 				print "-------------------------------------------------"  
 				print ""	
+				
 
 #function will print Database
 def displayDatabase():
+	os.system('clear')
+	
 
 def main():
-	print "\n"
-	print "*********************WELCOME**********************"
-	print ""
-	##reg form 
-	
-	##connnect database
-	##populate database
-	##close database
-	
+	os.system('clear')	
+	end = False
+	while end == False:
+		print ""
+		print "---------------------------MAIN MENU---------------------------"
+		print ""
+		print "Select an option below: "
+		print ""
+		print "1. New User Registration"
+		print "2. MDS Form"
+		print "3. Get Registered Product Information"
+		print "4. Test Result Data"
+		print "5. Quit"
+		print ""
+		print "---------------------------------------------------------------"
+		option = raw_input("Select an option 1 - 4 to continue or 5 to quit:\n")
 
-	UREG = addUser()
-	user1 = createUser(UREG)
-	MDS = addPV()
-	manufacturer1 = createManufacturer(MDS, user1)
-	pv1 = createProduct(MDS, manufacturer1)
+		if option == "1":
+			UREG = addUser()
+			user1 = createUser(UREG)
+		elif option == "2":
+			MDS = addPV()
+			manufacturer1 = createManufacturer(MDS, user1)
+			pv1 = createProduct(MDS, manufacturer1)
+		elif option == "3":
+			productInformation(pv1, user1)
+		elif option == "4":
+			BaselineTestResults()
+		elif option == "5":
+			end = True
+			os.system('clear')
+		else:
+			os.system('clear')		
 		
-
-	
-	
-	
 	
 main()
 
