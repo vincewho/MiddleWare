@@ -539,25 +539,25 @@ def addUser():
 #The following functions will ultimately get the MDS data and instantiate a product. (first contacat person, then manufacturer, then product)
 
 #instantiate the contact person using the User Class
-def createUser():
-	uname = ''
-	pword = ''
-	fname = MDS.get('Contact')
-	mname = ''
-	lname = MDS.get('Contact')	
-	addr = MDS.get('Address')
-	ophone = MDS.get('Phone')
-	cphone = MDS.get('Phone')
-	email = MDS.get('Email')
-	u1 = User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
+def createUser(UREG):
+	uname = UREG.get('Username')
+	pword = UREG.get('Password')
+	fname = UREG.get('First Name')
+	mname = UREG.get('Middle Name')
+	lname = UREG.get('Last Name')	
+	addr = UREG.get('Address')
+	ophone = UREG.get('Office Phone Number')
+	cphone = UREG.get('Cell Phone Number')
+	email = UREG.get('Email Address')
+	return User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
 
 #instantiate the manufacturer contact person
-def createManufacturer():
+def createManufacturer(MDS, User):
 	mname = MDS.get('Manufacturer')
 	country = MDS.get('Location')
-	man1 = manufacturer(mname, country, u1)
+	return manufacturer(mname, country, User)
 	
-def createProduct():
+def createProduct(MDS, man1):
 	#instantiate the product
 	mnum = MDS.get('Model Number')
 	mname = man1.getContact().getFirstName()
@@ -595,7 +595,7 @@ def createProduct():
 	rpmp = MDS.get('pmp')
 	rff = MDS.get('ff')
 	
-	pv1 = Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
+	return Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
 		
 
 #function will print product information
@@ -645,7 +645,10 @@ def main():
 	
 
 	UREG = addUser()
+	user1 = createUser(UREG)
 	MDS = addPV()
+	manufacturer1 = createManufacturer(MDS, user1)
+	pv1 = createProduct(MDS, manufacturer1)
 
 
 
