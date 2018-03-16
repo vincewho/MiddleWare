@@ -557,7 +557,7 @@ def createUser(UREG):
 #####################populate the database.#####################
 	
 	#create the connection to the database
-	mydb = MyClasses.DBModule()
+	mydb = myClasses.DBModule()
 	con = mydb.connect_db()
 	cur = con.cursor()
 	
@@ -581,7 +581,7 @@ def createManufacturer(MDS, User):
 	#####################populate the database.#####################
 	
 	#create the connection to the database
-	mydb = MyClasses.DBModule()
+	mydb = myClasses.DBModule()
 	con = mydb.connect_db()
 	cur = con.cursor()
 	
@@ -643,7 +643,7 @@ def createProduct(MDS, man1):
 	#####################populate the database.#####################
 	
 	#create the connection to the database
-	mydb = MyClasses.DBModule()
+	mydb = myClasses.DBModule()
 	con = mydb.connect_db()
 	cur = con.cursor()
 	
