@@ -176,19 +176,19 @@ def validatebox(value):
 
 ####################################### Clear Screens ####################################### 
 def ClearUser():
-		os.system('clear')
-        	print "----------------NEW USER REGISTRATION---------------"
-			print ""
+	os.system('clear')
+	print "----------------NEW USER REGISTRATION---------------"
+	print ""
 			
 def ClearMDS():
-		os.system('clear')
-		print "----------------MDS FORM---------------"
-		print ""
+	os.system('clear')
+	print "----------------MDS FORM---------------"
+	print ""
 		
 def ClearProduct():
-		os.system('clear')
-		print "----------Product Information-----------"
-		print ""
+	os.system('clear')
+	print "----------Product Information-----------"
+	print ""
 
 		
 #REGISTER PV MODULE MDS FORM : this function gets input and returns the data in a  dictionary
@@ -681,8 +681,8 @@ def BaselineTestResults():
 			if i[key] == 'Baseline':
 				test = myClasses.TestResults(i)
 				print "Model: " + i['Model']
-				print "Test Sequence: " + test.getTestSequence()
 				print "Condition:     " + test.getReportingConditon()
+				print "Test Sequence: " + test.getTestSequence()
 				print "Date:          " + test.getTestDate()
 				print "Isc:           " + test.getIsc()
 				print "Voc:           " + test.getVoc()
