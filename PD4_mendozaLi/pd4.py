@@ -5,7 +5,8 @@ import sys
 from collections import defaultdict
 import os #use os.system('clear') to clear terminal
 
-#import datetime
+#import MySQl
+import MySQLdb
 
 #import the classes
 import  myClasses
@@ -13,7 +14,6 @@ import  myClasses
 from myClasses import User
 from myClasses import manufacturer
 from myClasses import Product
-from myClasses import DBModule
 
 #import regex
 import re
@@ -178,18 +178,18 @@ def validatebox(value):
 ####################################### Clear Screens ####################################### 
 def ClearUser():
 	os.system('clear')
-	print "----------------NEW USER REGISTRATION---------------"
-	print ""
+	print ("----------------NEW USER REGISTRATION---------------")
+	print ("")
 			
 def ClearMDS():
 	os.system('clear')
-	print "----------------MDS FORM---------------"
-	print ""
+	print ("----------------MDS FORM---------------")
+	print ("")
 		
 def ClearProduct():
 	os.system('clear')
-	print "----------Product Information-----------"
-	print ""
+	print ("----------Product Information-----------")
+	print ("")
 
 		
 #REGISTER PV MODULE MDS FORM : this function gets input and returns the data in a  dictionary
@@ -369,7 +369,7 @@ def addPV():
 
 	ClearMDS()
 	encaptype = raw_input("Encapsulant Type: ")
-	while validateSub(encaptype) is Flase:
+	while validateSub(encaptype) is False:
 		encaptype = raw_input("Re-enter Encapsulant Type: ")
 	datalist.append(encaptype)
 
@@ -539,12 +539,269 @@ def addUser():
 	
 	#zip to combine both lists into a dictionary
 	return dict(zip(keys, datalist))
+	
 
 	
 #The following functions will ultimately get the MDS data and instantiate a product. (first contacat person, then manufacturer, then product)
 
 #instantiate the contact person using the User Class
-def createUser(UREG):
+#def createUser(UREG):
+#	uname = UREG.get('Username')
+#	pword = UREG.get('Password')
+#	fname = UREG.get('First Name')
+#	mname = UREG.get('Middle Name')
+#	lname = UREG.get('Last Name')	
+#	addr = UREG.get('Address')
+#	ophone = UREG.get('Office Phone Number')
+#	cphone = UREG.get('Cell Phone Number')
+#	email = UREG.get('Email Address')
+	
+	#create user object 
+#	user1 = myClasses.User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
+		
+#	return user1
+
+#instantiate the manufacturer contact person
+#def createManufacturer(MDS, User):
+#	mname = MDS.get('Manufacturer')
+#	country = MDS.get('Location')
+	
+	#create manufacturer object 
+#	manufacturer1 = myClasses.manufacturer(mname, country, User)
+	
+	
+	###create object manufacturer dictionary##
+#	var1 = {'Manu_name':manufacturer1.getName(), 'registered_country':manufacturer.getCountry()}
+	
+#	emptylist = []	
+#	emptylist.append(var1)
+	
+#####################populate the database.#####################
+	
+	# Now we can create the connection to the database
+#	mydb = myClasses.DBModule()
+#	con = mydb.connect_db("root", "mw")
+#	cur = con.cursor()
+
+	# Connection established and cursor object created
+
+	#insert data into database
+#	for i in range(len(emptylist)):
+#		mydb.insert_data("Manufacturer", cur, emptylist[i])
+		
+#	con.commit()
+#	cur.close()
+#	con.commit()
+#	con.close()
+
+	#return the object
+#	return manufacturer1
+	
+	
+#def createProduct(MDS, man1):
+#	#instantiate the product
+#	mnum = MDS.get('Model Number')
+#	mname = man1.getContact().getFirstName()
+#	mdate = 'Date'
+#	length = MDS.get('Module lxw')
+#	wdh = MDS.get('Module lxw')
+#	wgt = MDS.get('Module Weight')
+#	cellarea = MDS.get('Individual Cell Area')
+#	celltec = MDS.get('Cell Technology')
+#	numcell = MDS.get('Total number of cells')
+#	numcellseries = MDS.get('Number of cells in a series')
+#	numstring = MDS.get('Number of series strings')
+#	numbypass= MDS.get('Number of bypass diodes')
+#	fuserating = MDS.get('Series fuse rating')
+#	intermat = MDS.get('Innterconnect material')
+#	intersup = MDS.get('Cell Manufacturer')
+#	suptype= MDS.get('Superstrate Type')
+#	supman = MDS.get('Superstrate Manufacturer')
+#	subtype = MDS.get('Substrate Type')
+#	subman = MDS.get('Substrate Manufacturer')
+#	framemat = MDS.get('Frame Type')
+#	frameadh = MDS.get('Frame adhesive')
+#	entype = MDS.get('Encapsulant Type')
+#	enman = MDS.get('Encapsulant Manufacturer')
+#	jbtype = MDS.get('Junction Box Type')
+#	jbman = MDS.get('Junction box manufacturer')
+#	jbad = MDS.get('Junction box adhesive')
+#	cabtype = MDS.get('Cable & Connector type')
+#	contype = MDS.get('Cable & Connector type')
+#	maxsys = MDS.get('Maximum system voltage')
+#	rvoc = MDS.get('voc')
+#	risc = MDS.get('isc')
+#	rvmp = MDS.get('vmp')
+#	rimp = MDS.get('imp')
+#	rpmp = MDS.get('pmp')
+#	rff = MDS.get('ff')
+	
+	#create product object
+#	product1 = myClasses.Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
+	
+	#create a dictionary for product
+	#keys = ['Model Number', 'Manufacturer', 'Date', 'Module lxw', 'Module Weight', 'Individual Cell Area', 'Cell Technology',  'Total number of cells', 'Number of cells in a series', 'Number of bypass diodes', 'Series fuse rating', 'Innterconnect material', 'Cell Manufacturer', 'Superstrate Type', 'Superstrate Manufacturer', 'Substrate Type', 'Substrate Manufacturer', 'Frame Type', 'Frame adhesive', 'Encapsulant Type', 'Encapsulant Manufacturer', 'Junction Box Type', 'Junction box manufacturer', 'Junction box adhesive', 'Cable & Connector type', 'Cable & Connector type', 'Maximum system voltage', 'voc', 'isc', 'vmp', 'imp', 'ff'  ]
+	#values = [mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff]
+	#pvdict = dict(zip(keys, values))
+	
+	
+	###create object product dictionary##
+#	var1 = {'ManufacturedDate':product1.getManufacturingDate(), 'modelNumber':product1.getModelNumber(), 'Length':product1.getLength(), 'Width':product1.getWidth(), 'Weight':product1.getWieght(), 'Cell_Area':product1.getCellArea(), 'Cell_Technology':product1.getCellTechnology(), 'Total_num_cell':product1.getTotalNumberofCells(), 'Num_of_cell_series':product1.getTotalNumberofCells(), 'Num_of_series':product1.getSeriesStrings(), 'Num_of_diodes':product1.getnumberofbypassdiodes(), 'Series_fuse_rating':product1.getseriesfuserating(), 'Interconnect_material':product1.getinterconnectmaterial(), 'Interconnect_supplier':product1.getinterconnectsupplier(), 'Superstrate_type':product1.getsuperstratetype(), 'Superstrate_manu':product1.getsuperstratemanufacturer(), 'Substrate_type':product1.getsuperstratetype(), 'Substrate_manu':product1.getsuperstratemanufacturer(), 'Frame_material':product1.getjunctionboxadhesive(), 'Frame_adhesive':product1.getjunctionboxadhesiv(), 'Encapulant_type':product1.getjunctionboxtype(), 'Encapsulant_manu':product1.getjunctionboxadhesiv(), 'Junction_box_type':product1.getjunctionboxtype(), 'Junction_box_manu':product1.getjunctionboxmanufacturer(), 'Junction_box_adhesive':product1.getjunctionboxadhesiv(), 'Cable_type':product1.getcabletype(), 'Connector_type':product1.getconnnectortype(), 'Max_system_voltage':product1.getmaxsysvoltage(), 'ISC':product1.getratedisc(),'VOC':product1.getratedvoc(), 'IMP':product1.getratedimp(), 'VMP':product1.getratedvmp(), 'FF':product1.getratedff(), 'PMP':product1.getratedpmp()} 
+
+#	emptylist = []	
+#	emptylist.append(var1)
+	
+#####################populate the database.#####################
+	
+	# Now we can create the connection to the database
+#	mydb = myClasses.DBModule()
+#	con = mydb.connect_db("root", "mw")
+#	cur = con.cursor()
+
+	# Connection established and cursor object created
+
+#	for i in range(len(emptylist)):
+#		mydb.insert_data("Product", cur, emptylist[i])
+		
+#	con.commit()
+#	cur.close()
+#	con.commit()
+#	con.close()
+	
+#	return product1
+	
+def query(qry):
+		mydb = myClasses.DBModule()
+		con = mydb.connect_db("root", "mw")
+		cur = con.cursor()
+
+		query_str = qry
+		cur.execute(query_str)
+
+		# fetch all of the rows from the query
+		data = cur.fetchall()
+		
+		# close the cursor object
+		cur.close()
+		# close the connection
+		con.close()
+
+		for row in data :
+			return row[0]		
+
+#function will print product information
+def productInformation():
+	#print "----------Product Information-----------"
+	#print ""
+	#print "Manufacturer Name: " + str(pv1.getManufacturer())
+	#print "Contact Name: " + str(u1.getFirstName())
+	#print "Contact Email: " + str(u1.getEmail())
+	#print "Model Number: " + str(pv1.getModelNumber())
+	#print "Cell Technology: " + str(pv1.getCellTechnology())
+	#print "System Voltage: " +  str(pv1.getmaxsysvoltage())
+	#print "Rated Power (PMP): " + str(pv1.getratedpmp())
+	
+		
+	qry = 'SELECT Manufacturer from Product'
+	manufacName = query(qry)
+
+	qry = 'SELECT contactPerson from Manufacturer where Manu_name="'+manufacName+'"'
+	contactperson = query(qry)
+	
+	qry = 'SELECT email from Users where username="'+contactperson+'"'
+	contactemail = query(qry)
+	
+	qry = 'SELECT Cell_Technology from Product'
+	celltech = query(qry)
+
+	qry = 'SELECT PMP from Product'
+	rpmp = query(qry)
+
+	qry = 'SELECT AVG(ISC) from TestResults where testSequence="Baseline"'
+	baseline_isc = query(qry)
+	
+	qry = 'SELECT AVG(VOC) from TestResults where testSequence="Baseline"'
+	baseline_voc = query(qry)
+
+	qry = 'SELECT AVG(PMP) from TestResults where testSequence="Baseline"'
+	baseline_pmax = query(qry)	
+	
+	qry = 'SELECT AVG(ISC) from TestResults where testSequence="TC200"'
+	tc_isc = query(qry)
+
+	qry = 'SELECT AVG(VOC) from TestResults where testSequence="TC200"'
+	tc_voc = query(qry)
+
+	qry = 'SELECT AVG(PMP) from TestResults where testSequence="TC200"'
+	tc_pmax = query(qry)	
+
+	qry = 'SELECT AVG(ISC) from TestResults where testSequence="Damp Heat"'
+	dh_isc = query(qry)
+	
+	qry = 'SELECT AVG(VOC) from TestResults where testSequence="Damp Heat"'
+	dh_voc = query(qry)
+
+	qry = 'SELECT AVG(PMP) from TestResults where testSequence="Damp Heat"'
+	dh_pmax = query(qry)
+
+	qry = 'SELECT AVG(ISC) from TestResults where testSequence="HF10"'
+	hf_isc = query(qry)
+	
+	qry = 'SELECT AVG(VOC) from TestResults where testSequence="HF10"'
+	hf_voc = query(qry)
+
+	qry = 'SELECT AVG(PMP) from TestResults where testSequence="HF10"'
+	hf_pmax = query(qry)
+
+	tcdrop = str(round(tc_pmax / baseline_pmax * 100 - 100,4))+"%"
+	dhdrop = str(round(dh_pmax / baseline_pmax * 100 - 100,4))+"%"
+	hfdrop = str(round(hf_pmax / baseline_pmax * 100 - 100,4))+"%"
+	os.system('clear')
+
+	print '\nManufacturer: \t\t'+manufacName
+	print 'Contact name: \t\t'+contactperson
+	print 'Contact Email: \t\t'+contactemail
+	print 'Cell Technology: \t'+celltech
+	print 'Rated Power: \t\t'+str(rpmp)
+	print '\n			Baseline	TC200		Damp Heat	HF10\n'
+	print 'Average Isc:   \t\t'+str(round(baseline_isc,4))+'\t\t'+str(round(tc_isc,4))+'\t\t'+str(round(dh_isc,4))+'\t\t'+str(round(hf_isc,4))
+	print 'Average Voc:   \t\t'+str(round(baseline_voc,4))+'\t\t'+str(round(tc_voc,4))+'\t\t'+str(round(dh_voc,4))+'\t\t'+str(round(hf_voc,4))
+	print 'Average Pmax:  \t\t'+str(round(baseline_pmax,4))+'\t'+str(round(tc_pmax,4))+'\t\t'+str(round(dh_pmax,4))+'\t\t'+str(round(hf_pmax,4))
+	print '\nAverage Pmax' 
+	print 'drop from \t\t0%'+'\t\t'+tcdrop+'\t'+dhdrop+'\t'+hfdrop
+	print 'Baseline avg:'
+
+	raw_input("\nPress Enter to return to menu.")
+	os.system('clear')
+	
+	
+#function will print baseline test result	
+def BaselineTestResults():
+	print "----------Baseline Test Results----------"
+	print ""
+	
+	for i in dict_list:
+		for key in i:
+			if i[key] == 'Baseline':
+				test = myClasses.TestResults(i)
+				print "Model: " + i['Model']
+				print "Condition:     " + test.getReportingConditon()
+				print "Test Sequence: " + test.getTestSequence()
+				print "Date:          " + test.getTestDate()
+				print "Isc:           " + test.getIsc()
+				print "Voc:           " + test.getVoc()
+				print "Imp:           " + test.getImp()
+				print "Vmp:           " + test.getVmp()
+				print "FF:            " + test.getFF()
+				print "Pmp:           " + test.getPmp()
+				print ""
+				print "-------------------------------------------------"  
+				print ""	
+				
+# function will populate Database
+def Populate (MDS, UREG):
+
+	#instantiate the contact person using the User Class
 	uname = UREG.get('Username')
 	pword = UREG.get('Password')
 	fname = UREG.get('First Name')
@@ -555,55 +812,77 @@ def createUser(UREG):
 	cphone = UREG.get('Cell Phone Number')
 	email = UREG.get('Email Address')
 	
-#####################populate the database.#####################
+	#create user object 
+	user1 = myClasses.User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
+		
+	
+	###create object user dictionary##
+	user_row ={}
+	user_row = {'username':user1.getUsername(), 'password':user1.getPassword(), 'fname':user1.getFirstName(), 'mname':user1.getMiddleName(), 'lname':user1.getLastName(), 'address':user1.getAddress(), 'officePhone':user1.getOfficePhone(), 'cellphone':user1.getCellPhone(), 'email':user1.getEmail()  }
+			
+	userlist = []	
+	userlist.append(user_row)
+	
 	
 	# Now we can create the connection to the database
-	mydb = MyClasses.DBModule()
+	mydb = myClasses.DBModule()
 	con = mydb.connect_db("root", "mw")
 	cur = con.cursor()
 
-	# Connection established and cursor object created
-
-	# Populating the Benefit table
-	for i in range(len(UREG)):
-		mydb.insert_data("Users", cur, UREG[i])
+	#####################populate the user database.#####################
+	for i in range(len(userlist)):
+		mydb.insert_data("Users", cur, userlist[i])
+		con.commit()
+	
+	#initialize empty list
+	man_row = {}
+	manlist =[]
+	test_row = {}
+	testlist = []
+	
+	# check if user entered company type Manufacturer
+	if UREG.get('Company Type') == "Manufacturer":
+	
+		#instantiate the manufacturer contact person
+		mname = MDS.get('Manufacturer')
+		country = MDS.get('Location')
+	
+		#create manufacturer object 
+		manufacturer1 = myClasses.manufacturer(mname, country, User)
 		
-	con.commit()
-	cur.close()
-	con.commit()
-	con.close()
+		##create object Manufacturer dictionoary	
+		man_row = {'Manu_name':manufacturer1.getName(), 'registered_country':manufacturer1.getCountry()}
+		manlist.append(man_row)
+	
+		##populate Manufacturer table
+		for i in range(len(manlist)):
+			mydb.insert_data("Manufacturer", cur, manlist[i])
+		con.commit()
 
+	#check if user entered company type test Lab	
+	elif UREG.get('Company Type') == "Test Lab":
 	
-	#return the object
-	return User(uname, pword, fname, mname, lname, addr, ophone, cphone, email) 
+		#instantiate the test lab
+		labname = UREG.get('Company Name')
+		address = UREG.get('Address')
+	
+		#create test lab object
+		lab = myClasses.TestLab(labname, address, User)
+		
+		##create object Test Lab dictionary
+		test_row = {'Lab_name':lab.getName(), 'address':lab.getAddress()}
+		testlist.append(test_row)
 
-#instantiate the manufacturer contact person
-def createManufacturer(MDS, User):
-	mname = MDS.get('Manufacturer')
-	country = MDS.get('Location')
-	
-	#####################populate the database.#####################
-	
-	#create the connection to the database
-	mydb = myClasses.DBModule()
-	con = mydb.connect_db()
-	cur = con.cursor()
-	
-	#insert the data
-	mydb.insert_data("manfacturer", cur, MDS[i])
-	con.commit()
-	
-	#close the connection
-	cur.close()
-	con.commit()
-	con.close()
-	
-	return manufacturer(mname, country, User)
-	
-def createProduct(MDS, man1):
+		#populate TestLab table
+		for i in range(len(testlist)):
+			mydb.insert_data("testlab", cur, testlist[i])
+		con.commit()
+		
+		
+	#######Populate Prodduct table.	
 	#instantiate the product
 	mnum = MDS.get('Model Number')
-	mname = man1.getContact().getFirstName()
+	mname = UREG.get('First Name')
 	mdate = 'Date'
 	length = MDS.get('Module lxw')
 	wdh = MDS.get('Module lxw')
@@ -638,72 +917,40 @@ def createProduct(MDS, man1):
 	rpmp = MDS.get('pmp')
 	rff = MDS.get('ff')
 	
+	#create product object
+	product1 = myClasses.Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
 	
-	#create a dictionary for product
-	keys = ['Model Number', 'Manufacturer', 'Date', 'Module lxw', 'Module Weight', 'Individual Cell Area', 'Cell Technology',  'Total number of cells', 'Number of cells in a series', 'Number of bypass diodes', 'Series fuse rating', 'Innterconnect material', 'Cell Manufacturer', 'Superstrate Type', 'Superstrate Manufacturer', 'Substrate Type', 'Substrate Manufacturer', 'Frame Type', 'Frame adhesive', 'Encapsulant Type', 'Encapsulant Manufacturer', 'Junction Box Type', 'Junction box manufacturer', 'Junction box adhesive', 'Cable & Connector type', 'Cable & Connector type', 'Maximum system voltage', 'voc', 'isc', 'vmp', 'imp', 'ff'  ]
-	values = [mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff]
-	pvdict = dict(zip(keys, values))
+	###create object product dictionary##
+	product_row = {'ManufacturedDate':product1.getManufacturingDate(), 'modelNumber':product1.getModelNumber(), 'Length':product1.getLength(), 'Width':product1.getWidth(), 'Weight':product1.getWeight(), 'Cell_Area':product1.getCellArea(), 'Cell_Technology':product1.getCellTechnology(), 'Total_num_cell':product1.getTotalNumberofCells(), 'Num_of_cell_series':product1.getTotalNumberofCells(), 'Num_of_series':product1.getSeriesStrings(), 'Num_of_diodes':product1.getnumberofbypassdiodes(), 'Series_fuse_rating':product1.getseriesfuserating(), 'Interconnect_material':product1.getinterconnectmaterial(), 'Interconnect_supplier':product1.getinterconnectsupplier(), 'Superstrate_type':product1.getsuperstratetype(), 'Superstrate_manu':product1.getsuperstratemanufacturer(), 'Substrate_type':product1.getsuperstratetype(), 'Substrate_manu':product1.getsuperstratemanufacturer(), 'Frame_material':product1.getjunctionboxadhesive(), 'Frame_adhesive':product1.getjunctionboxadhesiv(), 'Encapulant_type':product1.getjunctionboxtype(), 'Encapsulant_manu':product1.getjunctionboxadhesiv(), 'Junction_box_type':product1.getjunctionboxtype(), 'Junction_box_manu':product1.getjunctionboxmanufacturer(), 'Junction_box_adhesive':product1.getjunctionboxadhesiv(), 'Cable_type':product1.getcabletype(), 'Connector_type':product1.getconnnectortype(), 'Max_system_voltage':product1.getmaxsysvoltage(), 'ISC':product1.getratedisc(),'VOC':product1.getratedvoc(), 'IMP':product1.getratedimp(), 'VMP':product1.getratedvmp(), 'FF':product1.getratedff(), 'PMP':product1.getratedpmp()} 
+
+	productlist = []	
+	productlist.append(product_row)
 	
-	#####################populate the database.#####################
-	
-	#create the connection to the database
-	mydb = myClasses.DBModule()
-	con = mydb.connect_db()
-	cur = con.cursor()
-	
-	#insert the data
-	mydb.insert_data("Product", cur, pvdict[i])
+	#####################populate the Product table #####################
+	for i in range(len(productlist)):
+		mydb.insert_data("Product", cur, productlist[i])	
+		
+		
+	## Populate the test_results table
+	resultlist=[]
+	result_row={}
+	for i in dict_list:
+		test = myClasses.TestResults(i)
+		result_row = {'Lab_name':test.getDataSource(), 'Test_date':test.getTestDate(), 'reportingCondition':test.getReportingConditon(), 'NOCT':test.getNoct(), 'ISC':test.getIsc(), 'VOC':test.getVoc(), 'PMP':test.getPmp(), 'FF':test.getFF(), 'VMP':test.getVmp(), 'IMP':test.getImp()}
+		resultlist.append(result_row)
+
+	# Test Results table
+	for i in range(len(resultlist)):
+		mydb.insert_data("test_results", cur, resultlist[i])	
+		
+	#close connectionn
 	con.commit()
-	
-	#close the connection
 	cur.close()
 	con.commit()
 	con.close()
 	
-	return Product(mnum, mname, mdate, length, wdh, wgt, cellarea, celltec, numcell, numcellseries, numstring, numbypass, fuserating, intermat, intersup, suptype, supman, subtype, subman, framemat, frameadh, entype, enman, jbtype, jbman, jbad, cabtype, contype, maxsys, rvoc, risc, rvmp, rimp, rpmp, rff)
-		
-
-#function will print product information
-def productInformation(pv1, u1):
-	print "----------Product Information-----------"
-	print ""
-	print "Manufacturer Name: " + str(pv1.getManufacturer())
-	print "Contact Name: " + str(u1.getFirstName())
-	print "Contact Email: " + str(u1.getEmail())
-	print "Model Number: " + str(pv1.getModelNumber())
-	print "Cell Technology: " + str(pv1.getCellTechnology())
-	print "System Voltage: " +  str(pv1.getmaxsysvoltage())
-	print "Rated Power (PMP): " + str(pv1.getratedpmp())
-
-#function will print baseline test result	
-def BaselineTestResults():
-	print "----------Baseline Test Results----------"
-	print ""
-	
-	for i in dict_list:
-		for key in i:
-			if i[key] == 'Baseline':
-				test = myClasses.TestResults(i)
-				print "Model: " + i['Model']
-				print "Condition:     " + test.getReportingConditon()
-				print "Test Sequence: " + test.getTestSequence()
-				print "Date:          " + test.getTestDate()
-				print "Isc:           " + test.getIsc()
-				print "Voc:           " + test.getVoc()
-				print "Imp:           " + test.getImp()
-				print "Vmp:           " + test.getVmp()
-				print "FF:            " + test.getFF()
-				print "Pmp:           " + test.getPmp()
-				print ""
-				print "-------------------------------------------------"  
-				print ""	
-				
-
-#function will print Database
-def displayDatabase():
 	os.system('clear')
 	
-
 def main():
 	os.system('clear')	
 	end = False
@@ -715,26 +962,32 @@ def main():
 		print ""
 		print "1. New User Registration"
 		print "2. MDS Form"
-		print "3. Get Registered Product Information"
+		print "3. Registered Product Information"
 		print "4. Test Result Data"
-		print "5. Quit"
+		print "5. Populate the Database"
+		print "6. Quit"
 		print ""
 		print "---------------------------------------------------------------"
-		option = raw_input("Select an option 1 - 4 to continue or 5 to quit:\n")
+		option = raw_input("Select an option 1 - 5 to continue or 6 to quit:\n")
 
 		if option == "1":
 			UREG = addUser()
-			print UREG
+			#print UREG
 			#user1 = createUser(UREG)
 		elif option == "2":
 			MDS = addPV()
-			manufacturer1 = createManufacturer(MDS, user1)
-			pv1 = createProduct(MDS, manufacturer1)
+			#user1 = createUser(UREG)
+			#manufacturer1 = createManufacturer(MDS, user1)
+			#pv1 = createProduct(MDS, manufacturer1)
 		elif option == "3":
-			productInformation(pv1, user1)
+			#user1 = createUser(UREG)
+			#pv1 = createProduct(MDS, manufacturer1)
+			productInformation()
 		elif option == "4":
 			BaselineTestResults()
 		elif option == "5":
+			Populate(MDS, UREG)
+		elif option == "6":
 			end = True
 			os.system('clear')
 		else:

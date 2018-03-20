@@ -6,21 +6,38 @@ class DBModule(object):
 	def __init__(self):
 		pass
 	'''
+	
+	def create_db(self):
+		pass
 
-	def connect_db(self, user='root', db='iadb'):
+	def connect_db(self, user='root', db='mw'):
 		con = MySQLdb.connect(user=user, db=db, passwd="")
 		return con
 
+	def create_table(self, sql_str):
+		cur.execute(sql_str)
+		return cur
 
+		#record is dict
 	def insert_data(self, tablename, cur, record):
-
 		placeholder = ','.join(['%s'] * len(record))
 		columns = ','.join(record.keys())
 		query_str = 'INSERT INTO %s (%s) VALUES (%s)' % (tablename, columns, placeholder)
-	#print query_str
+		#print query_str
+		#inserts the data
 		cur.execute(query_str, record.values())
 
+	def update_table(self):
+		pass
 
+	def delete_row(self):
+		pass
+
+	def select_rows(self):
+		pass
+
+	def drop_table(self):
+		pass
 
 
 
@@ -322,7 +339,7 @@ class Product(object):
 	def getSeriesStrings(self):
 		return self.__numberofSeriesStrings
 
-	def getnumberofbypassdiodes(self,bypassdiodes):
+	def getnumberofbypassdiodes(self):
 		return self.__numberofbypassdiodes
 
 	def getseriesfuserating(self):
@@ -378,7 +395,7 @@ class Product(object):
 
 	def getAll(self):
 		sub = {"modelNumber": self.getModelNumber(), "manufacturer": self.getManufacturer(), "manufacturingDate":self.manufacturingDate(),\
-				"length":self.length(),"width":self.getWidth(), "weight":self.getWieght(), "cellarea":self.getCellArea(),\
+				"length":self.getLength(),"width":self.getWidth(), "weight":self.getWieght(), "cellarea":self.getCellArea(),\
 				"celltechnology":self.getCellTechnology(),"totalnumberofcells":self.getTotalNumberofCells(), "cellsinseries":self.getCellsinSeries(),\
 				"numberofSeriesStrings":self.getSeriesStrings(), "bypassdiodes":self.getnumberofbypassdiodes(), "seriesfuserating":self.getseriesfuserating(),\
 				"interconnectmaterial":self.getinterconnectmaterial(),"interconnectsupplier":self.getinterconnectsupplier(), "superstratetype":self.getsuperstratetype(),\
