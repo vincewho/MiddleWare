@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>solarPV-Module</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <meta http-equiv="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="solarPV_index.css" />
+    <script type="text/javascript" src="solarPV_Location.js"></script>
+    <script type="text/javascript" src="solarPV_Mod_Drag.js"></script>
+
+
+</head>
+<body>
+
+    <div class="col-12" id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="solarPV_Home.html">solar<span class="logo_colour">PV<span>&#9788;</span></span></a></h1>
+                <h2>Research & Devlopment</h2>
+                <p>
+                    <a href="solarPV_Contact.html">About Us</a> | <a href="solarPV_Register.html">Register</a> | <a href="solarPV_Login.html">Login </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- <div class="col-3"></div> -->
+            <div class="col-7 col-m-8 col-s-12" id="menubar">
+                <ul id="menu">
+                    <li class="col-m-12"><a href="solarPV_Home.html">Home</a></li>
+                    <li class="selected col-m-12"><a href="solarPV_Module.html">PV Module</a></li>
+                    <li class="col-m-12"><a href="solarPV_Systems.html">PV Systems Performance</a></li>
+                    <li class="col-m-12"><a href="solarPV_Data.html">Solar Data Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Finished with the header and navigation -->
+
+    <!-- Starting the body stuff -->
+
+    <div id="site_content">
+        <div class="sidebar_left col-2 col-m-6 col-s-12">
+            <h1>Overview</h1>
+
+            <h4>PV Module</h4>
+            <ul>
+                <li><a href="solarPV_Module.html">Testing & Certification</a></li>
+                <li><a href="solarPV_Module.html">PV Rating</a></li>
+            </ul>
+
+            <h4>PV System Performance</h4>
+            <ul>
+                <li><a href="solarPV_Systems.html">Performance Analysis</a></li>
+                <li><a href="solarPV_Systems.html">Compare System</a></li>
+                <li><a href="solarPV_Systems.html">Certification</a></li>
+            </ul>
+
+            <h4>Solar Data Analytics</h4>
+            <ul>
+                <li><a href="solarPV_Data.html">Module Lifetime Perdiction</a></li>
+                <li><a href="solarPV_Data.html">Energy Prediction</a></li>
+            </ul>
+
+            <h4>Smart Grid Technologies</h4>
+            <ul>
+                <li><a href="solarPV_tech.html">New & Approved Proposals</a></li>
+            </ul>
+
+            <h4>Solar PV University</h4>
+            <ul>
+                <li><a href="solarPV_Contact.html">Visit the Campus Today!</a></li>
+            </ul>
+
+            <p><button onclick="geoFindMe()" class="button_location">Share my location</button></p>
+
+        </div>
+
+        <div class="col-8 col-m-6 col-s-12" id="dragdrop">
+
+            <h1>PV Module</h1>
+
+            <h2>Testing & Certification</h2>
+                <img id="testingjpg" src="images/module_testing.jpg" alt="Module Testing"><br />
+                <p>With over 75 years experience at the cutting edge of electrical safety testing,
+                    our expertise and innovations have produced a number of world firsts.</p>
+                <p>Specialised test equipment for solar PV installations has been long-anticipated
+                    within the industry so we responded by creating a range of solar pv test equipment
+                    specifically designed to meet the needs of solar installers.</p><br />
+
+
+            <h2>PV Rating</h2>
+
+                <p>Drag the images into the empty rectangles to form the pyramid:</p>
+
+                <div class="sidebar_left">
+                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br />
+                    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br />
+                    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br />
+                </div>
+
+                <div class="sidebar">
+
+                    <img id="drag2" src="images/module_middle.png" alt="middle tri" draggable="true" ondragstart="drag(event)" width="350" height="100"><br /><br /><br />
+                    <img id="drag3" src="images/module_bottom.png" alt="bottom tri" draggable="true" ondragstart="drag(event)" width="350" height="100"><br /><br /><br />
+                    <img id="drag1" src="images/module_top.png" alt="top tri" draggable="true" ondragstart="drag(event)" width="350" height="100">
+
+                </div>
+
+                <h4>Selecting Solar Panes By Tiers</h4><br />
+                <dl>
+                    <dt>Tier 1</dt>
+                        <dd> Considered to be the best solar panels, these manufacturers are vertically
+                            integrated; they have control over the entire manufacturing process.  They
+                            use the highest-grade silicon solar cells and are the highest performing
+                            solar panels.</dd><br />
+                    <dt>Tier 2</dt>
+                        <dd>These panels do not necessarily have substandard quality compared to Tier 1;
+                            they just don't have control of the whole process.  They spend less on R&D,
+                            but they still keep up with the latest developments on design and construction.</dd><br />
+                    <dt>Tier 3</dt>
+                        <dd> These manufacturers are largest percentage in the market.  Often tier three
+                            businesses only assemble the parts and source their products on the open market.
+                            These panels aren't recommended by My Solar Quotes.</dd>
+                </dl>
+
+
+
+        </div>
+
+        <div class="col-2 col-m-12 sidebar">
+            <h1>News & Events</h1>
+            <h4>PhotoVoltaic Technical</h4>
+            <h5>26 April to 28 April 2017 </h5>
+            <p>Conference to take place in Marsielle, France...<br /><a href="#">Read more</a></p>
+
+            <h4>Trump is the next President</h4>
+            <h5>Nov 10, 2016</h5>
+            <p>Inauguration is to take place on...<br /><a href="#">Read more</a></p>
+
+            <h4>Syrian forces recaptures Aleppo</h4>
+            <h5>Dec 14, 2016</h5>
+            <p>The Syrian army announced the country's secound city Aleppo has...<br /><a href="#">Read more</a></p>
+
+            <h4>Senate votes on SCOTUS nominee</h4>
+            <h5>Apr 4, 2017</h5>
+            <p>With the passing of Antonin Scalia, one of the U.S Supreme...<br /><a href="#">Read more</a></p>
+
+        </div>
+
+    </div>
+    <!-- End of the site-content -->
+    <div id="footer">
+        <!-- <div class="col-3"></div> -->
+
+        <div class="col-12"><p>solarPV</p>
+        <p>7001 E Williams Field Rd, Mesa, AZ 85212</p>
+        <p>(480) 727-1168 | solarPV@asu.edu | <a href="solarPV_Home.html">solarPV</a></p>
+        <p>2017 All Rights Reserved </p>
+        <p><a href="#">Site Map</a> | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a></p>
+        <p>Follow Us on Social Media: <a href="http://www.LinkedIn.com">LinkedIn</a> | <a href="http://www.Facebook.com">Facebook</a> | <a href="http://www.Instagram.com">Instagram</a> | <a href="http://www.twitter.com">Twitter</a></p>
+        </div>
+
+        <!-- <div class="col-3"></div> -->
+
+    </div>
+</body>
+</html>
