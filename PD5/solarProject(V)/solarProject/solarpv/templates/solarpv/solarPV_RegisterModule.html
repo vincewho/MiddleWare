@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>solarPV-Register</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <meta http-equiv="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "solarpv/css/solarPV_Index.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "solarpv/css/solarPV_Forms.css" %}" />
+    <script type="text/javascript" src="{% static "solarpv/java/solarPV_Location.js" %}"></script>
+
+</head>
+
+<body>
+
+    <div class="col-12" id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="solarPV_Home.html">solar<span class="logo_colour">PV<span>&#9788;</span></span></a></h1>
+                <h2>Research & Devlopment</h2>
+                <p>
+                    <a href="solarPV_Contact.html">About Us</a> | <a href="{% url 'registeruser' %}">Register User</a> | <a href="solarPV_Login.html">Login </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- <div class="col-3"></div> -->
+            <div class="col-7 col-m-8 col-s-12" id="menubar">
+                <ul id="menu">
+                    <li class="col-m-12"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="col-m-12"><a href="solarPV_Module.html">PV Module</a></li>
+                    <li class="col-m-12"><a href="solarPV_Systems.html">PV Systems Performance</a></li>
+                    <li class="col-m-12"><a href="solarPV_Data.html">Solar Data Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Finished with the header and navigation -->
+
+    <!-- Starting the body stuff -->
+
+    <div id="site_content">
+        <div class="sidebar_left col-2 col-m-6 col-s-12">
+            <h1>Overview</h1>
+
+            <h4>PV Module</h4>
+            <ul>
+                <li><a href="solarPV_Module.html">Testing & Certification</a></li>
+                <li><a href="solarPV_Module.html">PV Rating</a></li>
+            </ul>
+
+            <h4>PV System Performance</h4>
+            <ul>
+                <li><a href="solarPV_Systems.html">Performance Analysis</a></li>
+                <li><a href="solarPV_Systems.html">Compare System</a></li>
+                <li><a href="solarPV_Systems.html">Certification</a></li>
+            </ul>
+
+            <h4>Solar Data Analytics</h4>
+            <ul>
+                <li><a href="solarPV_Data.html">Module Lifetime Perdiction</a></li>
+                <li><a href="solarPV_Data.html">Energy Prediction</a></li>
+            </ul>
+
+            <h4>Smart Grid Technologies</h4>
+            <ul>
+                <li><a href="solarPV_tech.html">New & Approved Proposals</a></li>
+            </ul>
+
+            <h4>Solar PV University</h4>
+            <ul>
+                <li><a href="solarPV_Contact.html">Visit the Campus Today!</a></li>
+            </ul>
+
+            <p><button onclick="geoFindMe()" class="button_location">Share my location</button></p>
+
+        </div>
+
+    <!-- Registration begin -->
+        <div class="col-8 col-m-6 col-s-12 container" id="content">
+        	<form name='registration' onSubmit="return formValidation();" id="Register" action="" method="post" autocomplete="on">
+        		<h1>Register</h1>
+        		<h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
+        		<fieldset><br />
+        			<input placeholder="Manufacturer" name="manuname" type="text" tabindex="1" autofocus><br /> <br />
+        			<input placeholder="Location" name="location" type="text" tabindex="2" ><br /> <br />
+                    <input placeholder="Contact" name="contactname" type="text" tabindex="3" required ><br /><br />
+                    <input placeholder="Address" name="simpleaddress" type="text" tabindex="4" required ><br /><br />
+                    <input placeholder="Email Address" name="email" type="email" tabindex="5" required><br /><br />
+                    <input placeholder="Phone Number (###) ### - ####" name="phone" type="tel" tabindex="6" required><br /><br />
+                    <input placeholder="Model Number" name="modelnum" type="tel" tabindex="7" required><br /><br />
+                    <input placeholder="Moduel Length x Width (cm x cm)" name="lengthwidth" type="text" tabindex="89" required><br /><br />
+                    <input placeholder="Weight" name="weight" type="text" tabindex="9" required><br /><br />
+                    <input placeholder="Individual cell Area (cm2)" name="cellarea" type="text" tabindex="10"><br /> <br />
+                    <input placeholder="Cell technology (mono-Si, poly-Si, a-Si, CIS, CdTe, etc.)" name="celltech" type="text" tabindex="11"><br /> <br />
+                    <input placeholder="Cell manufacturing location" name="cellmanlocation" type="text" tabindex="12"><br /> <br />
+                    <input placeholder="Total number of cells" name="totalnumcell" type="text" tabindex="13"><br /> <br />
+                    <input placeholder="Number of cells in series" name="numcellseries" type="text" tabindex="14"><br /> <br />
+                    <input placeholder="Number of series strings " name="numseriesstr" type="text" tabindex="15"><br /> <br />
+                    <input placeholder="Number of bypass diodes" name="numdiode" type="text" tabindex="16"><br /> <br />
+                    <input placeholder="Bypass diode rating (A) " name="bypassrating" type="text" tabindex="17"><br /> <br />
+                    <input placeholder="Bypass diode max junction temperature (°C)" name="bypassmaxjunc" type="text" tabindex="18"><br /> <br />
+                    <input placeholder="Series fuse rating (A)" name="seriesfuse" type="text" tabindex="19"><br /> <br />
+                    <input placeholder="Interconnect material and supplier model no." name="interconnectmat" type="text" tabindex="20"><br /> <br />
+                    <input placeholder="Interconnect dimensions (mm x mm)" name="interconnectdimen" type="text" tabindex="21"><br /> <br />
+                    <input placeholder="Superstrate type " name="supertype" type="text" tabindex="22"><br /> <br />
+                    <input placeholder="Superstrate manufacturer and part #" name="supermanu" type="text" tabindex="23"><br /> <br />
+                    <input placeholder="Substrate type" name="substratetype" type="text" tabindex="25"><br /> <br />
+                    <input placeholder="Substrate manufacturer and part #" name="substratemanu" type="text" tabindex="24"><br /> <br />
+                    <input placeholder="Frame type/material" name="frametype" type="text" tabindex="25"><br /> <br />
+                    <input placeholder="Frame adhesive" name="frameadhesive" type="text" tabindex="26"><br /> <br />
+                    <input placeholder="Encapsulant type" name="encapsulanttype" type="text" tabindex="27"><br /> <br />
+                    <input placeholder="Encapsulant manufacturer and part #" name="encapsulantmanu" type="text" tabindex="28"><br /> <br />
+                    <input placeholder="Junction box type" name="juncboxtype" type="text" tabindex="29"><br /> <br />
+                    <input placeholder="Junction box manufacturer and part #" name="juncboxmanu" type="text" tabindex="30"><br /> <br />
+                    <input placeholder="Junction box potting material, if any" name="juncboxpot" type="text" tabindex="31"><br /> <br />
+                    <input placeholder="Junction box adhesive" name="juncboxadhesive" type="text" tabindex="32"><br /> <br />
+                    <input placeholder="Is junction box intended for use with Conduit?" name="conduit" type="text" tabindex="33"><br /> <br />
+                    <input placeholder="Cable & Connector type" name="cableconnecttype" type="text" tabindex="34"><br /> <br />
+                    <input placeholder="Maximum system voltage (V)" name="maxsysvolt" type="text" tabindex="35"><br /> <br />
+                    <input placeholder="Voc (V)" name="voc" type="text" tabindex="36"><br /> <br />
+                    <input placeholder="Isc (A)" name="isc" type="text" tabindex="37"><br /> <br />
+                    <input placeholder="Vmp (V)" name="vmp" type="text" tabindex="38"><br /> <br />
+                    <input placeholder="Imp (A)" name="imp" type="text" tabindex="39"><br /> <br />
+                    <input placeholder="Pmp (W)" name="pmp" type="text" tabindex="40"><br /> <br />
+                    <input placeholder="FF (%)" name="ff" type="text" tabindex="41"><br /> <br />
+
+        			<p>Review your entries before Registering!</p>
+        			<p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
+        			<button name="submit" type="submit" value="Submit" class="button">Register Now</button>
+        			<button name="reset" type="reset" class="button">Reset Form</button><br /><br />
+        			<p><a href="solarPV_Login.html">Already have an Account?</a></p>
+        		</fieldset>
+        	</form>
+
+        	<br /><br />
+        </div>
+
+        <div class="col-2 col-m-12 sidebar">
+            <h1>News & Events</h1>
+            <h4>PhotoVoltaic Technical</h4>
+            <h5>26 April to 28 April 2017 </h5>
+            <p>Conference to take place in Marsielle, France...<br /><a href="#">Read more</a></p>
+
+            <h4>Trump is the next President</h4>
+            <h5>Nov 10, 2016</h5>
+            <p>Inauguration is to take place on...<br /><a href="#">Read more</a></p>
+
+            <h4>Syrian forces recaptures Aleppo</h4>
+            <h5>Dec 14, 2016</h5>
+            <p>The Syrian army announced the country's secound city Aleppo has...<br /><a href="#">Read more</a></p>
+
+            <h4>Senate votes on SCOTUS nominee</h4>
+            <h5>Apr 4, 2017</h5>
+            <p>With the passing of Antonin Scalia, one of the U.S Supreme...<br /><a href="#">Read more</a></p>
+
+        </div>
+
+    </div>
+
+
+    <div id="footer">
+	  <p></p>
+	  <p>solarPV</p>
+	  <p>7001 E Williams Field Rd, Mesa, AZ 85212</p>
+	  <p>(480) 727-1168 | solarPV@asu.edu | <a href="solarPV_Home.html">solarPV</a></p>
+	  <p>2017 All Rights Reserved </p>
+      <p><a href="#">Site Map</a> | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a></p>
+      <p>Follow Us on Social Media: <a href="http://www.LinkedIn.com">LinkedIn</a> | <a href="http://www.Facebook.com">Facebook</a> | <a href="http://www.Instagram.com">Instagram</a> | <a href="http://www.twitter.com">Twitter</a></p>
+    </div>
+  </div>
+</body>
+</html>
