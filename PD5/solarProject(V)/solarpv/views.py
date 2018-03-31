@@ -10,3 +10,9 @@ def regU(request):
   
 def regM(request):
   return render(request, 'solarpv/solarPV_RegisterModule.html')
+    
+def testp(request):
+  return render(request, 'solarpv/solarPV_TestingPage.html')
+  
+def rating(request):
+  return render(request, 'solarpv/solarPV_RatingPage.html')
