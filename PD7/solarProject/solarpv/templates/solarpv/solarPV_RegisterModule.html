@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>solarPV-Register</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <meta http-equiv="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static "solarpv/css/solarPV_Index.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "solarpv/css/solarPV_Forms.css" %}" />
+    <script type="text/javascript" src="{% static "solarpv/java/solarPV_Location.js" %}"></script>
+
+</head>
+
+<body>
+
+    <div class="col-12" id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <h1><a href="{% url 'home' %}">solar<span class="logo_colour">PV<span>&#9788;</span></span></a></h1>
+                <h2>Research & Devlopment</h2>
+                <p>
+                    <a href="solarPV_Contact.html">About Us</a> | <a href="{% url 'registeruser' %}">Register User</a> | <a href="solarPV_Login.html">Login </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- <div class="col-3"></div> -->
+            <div class="col-7 col-m-8 col-s-12" id="menubar">
+                <ul id="menu">
+                    <li class="col-m-12"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="col-m-12"><a href="solarPV_Module.html">PV Module</a></li>
+                    <li class="col-m-12"><a href="solarPV_Systems.html">PV Systems Performance</a></li>
+                    <li class="col-m-12"><a href="solarPV_Data.html">Solar Data Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Finished with the header and navigation -->
+
+    <!-- Starting the body stuff -->
+
+    <div id="site_content">
+        <div class="sidebar_left col-2 col-m-6 col-s-12">
+            <h1>Overview</h1>
+
+            <h4>PV Module</h4>
+            <ul>
+                <li><a href="solarPV_Module.html">Testing & Certification</a></li>
+                <li><a href="solarPV_Module.html">PV Rating</a></li>
+            </ul>
+
+            <h4>PV System Performance</h4>
+            <ul>
+                <li><a href="solarPV_Systems.html">Performance Analysis</a></li>
+                <li><a href="solarPV_Systems.html">Compare System</a></li>
+                <li><a href="solarPV_Systems.html">Certification</a></li>
+            </ul>
+
+            <h4>Solar Data Analytics</h4>
+            <ul>
+                <li><a href="solarPV_Data.html">Module Lifetime Perdiction</a></li>
+                <li><a href="solarPV_Data.html">Energy Prediction</a></li>
+            </ul>
+
+            <h4>Smart Grid Technologies</h4>
+            <ul>
+                <li><a href="solarPV_tech.html">New & Approved Proposals</a></li>
+            </ul>
+
+            <h4>Solar PV University</h4>
+            <ul>
+                <li><a href="solarPV_Contact.html">Visit the Campus Today!</a></li>
+            </ul>
+
+            <p><button onclick="geoFindMe()" class="button_location">Share my location</button></p>
+
+        </div>
+
+    <!-- Registration begin -->
+        <div class="col-8 col-m-6 col-s-12 container" id="content">
+        	<form name='registration' onSubmit="return formValidation();" id="Register" action="" method="post" autocomplete="on">
+        		<h1>Register</h1>
+        		<h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
+        		<fieldset><br />
+
+                    {% csrf_token %}
+                    {{ form1.as_p }}
+                    <h2>Product Register</h2>
+                    {{ form.as_p }}
+
+
+        			<p>Review your entries before Registering!</p>
+        			<p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
+        			<button name="submit" type="submit" value="Submit" class="button">Register Now</button>
+        			<button name="reset" type="reset" class="button">Reset Form</button><br /><br />
+        			<p><a href="solarPV_Login.html">Already have an Account?</a></p>
+        		</fieldset>
+        	</form>
+
+        	<br /><br />
+        </div>
+
+        <div class="col-2 col-m-12 sidebar">
+            <h1>News & Events</h1>
+            <h4>PhotoVoltaic Technical</h4>
+            <h5>26 April to 28 April 2017 </h5>
+            <p>Conference to take place in Marsielle, France...<br /><a href="#">Read more</a></p>
+
+            <h4>Trump is the next President</h4>
+            <h5>Nov 10, 2016</h5>
+            <p>Inauguration is to take place on...<br /><a href="#">Read more</a></p>
+
+            <h4>Syrian forces recaptures Aleppo</h4>
+            <h5>Dec 14, 2016</h5>
+            <p>The Syrian army announced the country's secound city Aleppo has...<br /><a href="#">Read more</a></p>
+
+            <h4>Senate votes on SCOTUS nominee</h4>
+            <h5>Apr 4, 2017</h5>
+            <p>With the passing of Antonin Scalia, one of the U.S Supreme...<br /><a href="#">Read more</a></p>
+
+        </div>
+
+    </div>
+
+
+    <div id="footer">
+	  <p></p>
+	  <p>solarPV</p>
+	  <p>7001 E Williams Field Rd, Mesa, AZ 85212</p>
+	  <p>(480) 727-1168 | solarPV@asu.edu | <a href="solarPV_Home.html">solarPV</a></p>
+	  <p>2017 All Rights Reserved </p>
+      <p><a href="#">Site Map</a> | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a></p>
+      <p>Follow Us on Social Media: <a href="http://www.LinkedIn.com">LinkedIn</a> | <a href="http://www.Facebook.com">Facebook</a> | <a href="http://www.Instagram.com">Instagram</a> | <a href="http://www.twitter.com">Twitter</a></p>
+    </div>
+  </div>
+</body>
+</html>
