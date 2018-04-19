@@ -14,13 +14,20 @@
 </head>
 <body>
 
+    <button class="dropbtn">Dropdown</button>
+                      <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                      </div>
+
     <div class="col-12" id="header">
         <div id="logo">
             <div id="logo_text">
                 <h1><a href="{% url 'home' %}">solar<span class="logo_colour">PV<span>&#9788;</span></span></a></h1>
                 <h2>Research & Devlopment</h2>
                 <p>
-                    <a href="solarPV_Contact.html">About Us</a> | <a href="{% url 'registeruser' %}">Register User</a> | <a href="{% url 'registermodule' %}">Register Module</a> | <a href="{% url 'testpage' %}">Testing Page</a> | <a href="{% url 'ratingpage' %}">Ratings</a> | <a href="solarPV_Login.html">Login </a> 
+                    <a href="solarPV_Contact.html">About Us</a> | <a href="solarPV_Login.html">Login </a>
                 </p>
             </div>
         </div>
@@ -38,6 +45,7 @@
         </div>
     </div>
     <!-- Finished with the header and navigation -->
+
 
     <!-- Starting the body stuff -->
 

@@ -20,7 +20,8 @@ class User(models.Model):
 
 class TestLab(models.Model):
     name = models.CharField(max_length=100)
-    address = models.TextField()
+    address = models.TextField(default='Some Place Ave.')
+    country = models.CharField(max_length=100, default='USA')
     contact = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -30,6 +31,7 @@ class TestLab(models.Model):
 class Manufacturer(models.Model):
     # countryChoice = (('usa', 'USA'),('france','France'))
     name = models.CharField(max_length=100)
+    address = models.TextField(default='Some Place Ave.')
     country = models.CharField(max_length=100)
     contact = models.ForeignKey(User, on_delete=models.CASCADE)
 

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>solarPV-Register</title>
+    <title>solarPV-Register Product</title>
     <meta name="description" content="website description" />
     <meta name="keywords" content="website keywords, website keywords" />
     <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
@@ -22,7 +22,7 @@
                 <h1><a href="{% url 'home' %}">solar<span class="logo_colour">PV<span>&#9788;</span></span></a></h1>
                 <h2>Research & Devlopment</h2>
                 <p>
-                    <a href="solarPV_Contact.html">About Us</a> | <a href="{% url 'registeruser' %}">Register User</a> | <a href="solarPV_Login.html">Login </a>
+                    <a href="solarPV_Contact.html">About Us</a> | <a href="{% url 'registermodule' %}">Register Module</a> | <a href="solarPV_Login.html">Login </a>
                 </p>
             </div>
         </div>
@@ -82,45 +82,26 @@
 
     <!-- Registration begin -->
         <div class="col-8 col-m-6 col-s-12 container" id="content">
-        	<form name='registration' onSubmit="" id="Register" action="{% url 'registermodule' %}" method="post" autocomplete="on">
-        		<h1>Register</h1>
-        		<h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
-        		<fieldset><br />
+            <form name='registration' id="Register" action="{% url 'registeruser' %}" method="post" autocomplete="on">
+                <!-- {% csrf_token %} -->
+                <h1>Register</h1>
+                <h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
+                <fieldset><br />
 
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <select name="Register" id="regDropDown" onchange="show()">
-                        <option value="None">Please Choose Company Type</option>
-                        <option value="regManu">Manufacturer</option>
-                        <option value="regTestLab">Test Lab</option>
-                    </select>
 
-                    <script>
-                        function show(){
-                            var selection = document.getElementById("regDropDown").value;
-                            if (selection == "regManu"){
-                            document.getElementById("Register").action = "{% url 'registermodule' %}";
-                            }
-                            if (selection == "regTestLab"){
-                            document.getElementById("Register").action = "{% url 'registertest' %}";
-                            }
-
-                        }
-                    </script>
-
-
-
-        			<p>Review your entries before Registering!</p>
-        			<p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
-                    <input type="submit" value="Submit" name="submit" id="demo">
+                    <p>Review your entries before Registering!</p>
+                    <p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
+                    <input type="submit" value="Submit">
                     <input type="submit" value="Reset Form">
-        			<!-- button name="submit" type="submit" value="Submit" class="button" id="demo">Register Now</button>
-        			<button name="reset" type="reset" class="button">Reset Form</button><br /><br /> -->
-        			<p><a href="solarPV_Login.html">Already have an Account?</a></p>
-        		</fieldset>
-        	</form>
+                    <!-- <button name="submit" type="submit" value="Submit" class="button">Register Now</button> -->
+                    <!-- <button name="reset" type="reset" class="button">Reset Form</button><br /><br /> -->
+                    <p><a href="{% url 'home' %}">Already have an Account?</a></p>
+                </fieldset>
+            </form>
 
-        	<br /><br />
+            <br /><br />
         </div>
 
         <div class="col-2 col-m-12 sidebar">
@@ -147,11 +128,11 @@
 
 
     <div id="footer">
-	  <p></p>
-	  <p>solarPV</p>
-	  <p>7001 E Williams Field Rd, Mesa, AZ 85212</p>
-	  <p>(480) 727-1168 | solarPV@asu.edu | <a href="solarPV_Home.html">solarPV</a></p>
-	  <p>2017 All Rights Reserved </p>
+      <p></p>
+      <p>solarPV</p>
+      <p>7001 E Williams Field Rd, Mesa, AZ 85212</p>
+      <p>(480) 727-1168 | solarPV@asu.edu | <a href="{% url 'home' %}">solarPV</a></p>
+      <p>2017 All Rights Reserved </p>
       <p><a href="#">Site Map</a> | <a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a></p>
       <p>Follow Us on Social Media: <a href="http://www.LinkedIn.com">LinkedIn</a> | <a href="http://www.Facebook.com">Facebook</a> | <a href="http://www.Instagram.com">Instagram</a> | <a href="http://www.twitter.com">Twitter</a></p>
     </div>

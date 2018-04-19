@@ -1,6 +1,6 @@
 # solarProject/forms.py
 from django import forms
-from backend.models import User, Manufacturer, Product
+from backend.models import User, Manufacturer, Product, TestLab
 
 # class registerForm(forms.Form):
 # fname = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'class': '', 'placeholder': 'First Name'}))
@@ -31,8 +31,13 @@ class registerModForm(forms.ModelForm):
         fields = '__all__'
 
 
-class productForm(forms.ModelForm):
+class registerTestLabForm(forms.ModelForm):
+    class Meta:
+        model = TestLab
+        fields = '__all__'
+
+
+class registerProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
-        exclude = ('manufacturer',)
