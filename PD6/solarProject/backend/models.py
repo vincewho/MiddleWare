@@ -15,7 +15,7 @@ class User(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return "Name: %s has Username: %s" % (self.fname, self.username)
+        return ("Username: %s, First Name: %s, Mididle Name: %s, Last Name: %s, Address: %s, Office Number: %s, Cell Number: %s, Email: %s " % (self.username, self.fname, self.mname, self.lname, self.address, self.officenum, self.cellnum, self.email))
 
 
 class TestLab(models.Model):
