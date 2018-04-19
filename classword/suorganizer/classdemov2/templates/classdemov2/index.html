@@ -1,0 +1,101 @@
+{% load static %}
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Light Theme</title>
+<link href="{% static "classdemov2/css/main.css" %}" rel="stylesheet" type="text/css">
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Main Container -->
+<div class="container">
+  <!-- Navigation -->
+  <header> <a href="">
+    <h4 class="logo"> </h4>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#hero">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li> <a href="{% url 'contactus' %}">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+
+  <section class="hero" id="hero">
+    <h2 class="hero_header"><img src="{% static "classdemov2/images/logo.png" %}" width="549" height="243"></h2>
+    <h1 class="tagline">building a better world</h1>
+  </section>
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2 class="hidden">About</h2>
+    <p class="text_column">To improve the health of the population through health campaigns, which include health data collection, free generic tests, free generic drugs, free consultations, etc. </p>
+    <p class="text_column">To foster affordable education through scholarship opportunities and workforce training programs </p>
+    <p class="text_column">To drive local development through awareness campaigns, fundraising for specific projects, etc. </p>
+  </section>
+  <!-- Stats Gallery Section -->
+  <div class="gallery">
+    <div class="thumbnail">
+      <h1 class="stats">$12.5M</h1>
+      <!-- <h4>TITLE</h4> -->
+      <p>Money raised in 2015</p>
+    </div>
+    <div class="thumbnail">
+      <h1 class="stats">100 Per Year</h1>
+      <!-- <h4>TITLE</h4> -->
+      <p>Fundraising Events</p>
+    </div>
+    <div class="thumbnail">
+      <h1 class="stats">47,000 People</h1>
+      <!-- <h4>TITLE</h4> -->
+      <p>Affected By Positive CHange</p>
+    </div>
+    <div class="thumbnail">
+      <h1 class="stats">0.1%</h1>
+      <!-- <h4>TITLE</h4> -->
+      <p>Administrative Costs</p>
+    </div>
+  </div>
+  <!-- Parallax Section -->
+  <section class="banner">
+    <h2 class="parallax">UPCOMING FUNDRAISING EVENTS</h2>
+    <p class="parallax_description">Winter Coat Drive - November 1 to December 31<br />Desalination Research - March 1 to June 30<br />
+      Multi-junction Solar Cell Research - May 1 to July 31<br />Converting Carbon Dioxide to Ethanol Fuel Research - January 1 to December 31</p>
+  </section>
+  <!-- More Info Section -->
+  <footer>
+    <article class="footer_column">
+      <h3>ABOUT</h3>
+      <img src="{% static "classdemov2/images/about.png" %}" alt="" width="400" height="200" class="cards"/>
+      <p>We are an organization whose mission is to improve the lives of others and be respectful to the environment. We sponsor research and construction projects all over the world. Your tax-decuctible donation goes directly to the people who need it most. </p>
+    </article>
+    <article class="footer_column">
+      <h3>LOCATION</h3>
+      <img src="{% static "classdemov2/images/wichita.png" %}" alt="" width="400" height="200" class="cards"/>
+      <p>Our home office is in Wichita, Kansas. We have other locations in Sacremento, California, Minneapolis, Minnesota, Indianapolis, Indiana, &amp; Louisville, Kentucky.</p>
+    </article>
+  </footer>
+  <!-- Footer Section -->
+  <section class="footer_banner" id="contact">
+    <h2 class="hidden">Footer Banner Section </h2>
+    <p class="hero_header">FOR MORE INFORMATION OR TO DONATE CLICK BELOW</p>
+    <div class="button"><a href="contactus.html" style="text-decoration:none; color: #000000;">contact</a></div>
+  </section>
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;2018 - <strong>Light Theme</strong></div>
+</div>
+<!-- Main Container Ends -->
+</body>
+</html>

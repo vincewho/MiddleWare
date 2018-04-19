@@ -1,0 +1,21 @@
+<!-- homedemo/index.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFT 530 Test </title>
+</head>
+<body>
+<h1>This is the test page for IFT 530</h1>
+    <form action="{% url 'sport' %}" method="POST">
+       <!--  <input id="your_name" name="your_name" type="text" value="{{ current_name }}">
+        <input type="submit" value="OK"> -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- {{ form1.as_p}} -->
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
