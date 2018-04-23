@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .forms import registerForm, registerModForm, registerTestLabForm, registerProductForm
+from .forms import *
 from backend.models import Manufacturer
 # User, Manufacturer, Product
 
@@ -29,7 +29,7 @@ def reg(request):
     return render(request, 'solarpv/solarPV_Register.html', context)
 
 
-def regM(request):
+def regC(request):
     if request.method == 'POST':
         manuForm = registerModForm(request.POST)
 
@@ -42,7 +42,7 @@ def regM(request):
         manuForm = registerModForm()
 
     context = {'form': manuForm}
-    return render(request, 'solarpv/solarPV_RegisterModule.html', context)
+    return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
 
 
 def regTL(request):
@@ -57,7 +57,7 @@ def regTL(request):
         testForm = registerTestLabForm()
 
     context = {'form': testForm}
-    return render(request, 'solarpv/solarPV_RegisterModule.html', context)
+    return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
 
 
 def regPro(request):
@@ -76,9 +76,22 @@ def regPro(request):
     return render(request, 'solarpv/solarPV_RegisterProduct.html', context)
 
 
-def rating(request):
-    return render(request, 'solarpv/solarPV_RatingPage.html')
+def pvModule(request):
+    return render(request, 'solarpv/solarPV_PvModule.html')
 
 
 def testp(request):
+    if request.method == 'POST':
+        form = uploadForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            instant = fileUpload(upload=request.FILES['file'])
+            # file is saved
+            instant1.save()
+            return HttpResponseRedirect('/homedemo/sport/')
+
+    else:
+        form = uploadForm()
+
+    context = {'form': form}
     return render(request, 'solarpv/solarPV_TestingPage.html')

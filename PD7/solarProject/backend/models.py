@@ -90,3 +90,7 @@ class TestResult(models.Model):
 
     def __str__(self):
         return "Condition %s" % (self.reportCondition)
+
+
+class fileUpload(models.Model):
+    upload = models.FileField(upload_to='uploads')
