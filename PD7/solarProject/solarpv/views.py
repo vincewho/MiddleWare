@@ -8,90 +8,92 @@ from backend.models import Manufacturer
 
 
 def home(request):
-    return render(request, 'solarpv/solarPV_Home.html')
+	return render(request, 'solarpv/solarPV_Home.html')
 
 
 def reg(request):
 
-    if request.method == 'POST':
-        userForm = registerForm(request.POST)
+	if request.method == 'POST':
+		userForm = registerForm(request.POST)
 
-        if userForm.is_valid():
-            # allow when testing is finished
-            userForm.save()
-            return redirect('home')
+		if userForm.is_valid():
+			# allow when testing is finished
+			userForm.save()
+			return redirect('home')
 
-    else:
-        userForm = registerForm()
+	else:
+		userForm = registerForm()
 
-    context = {'form': userForm}
+	context = {'form': userForm}
 
-    return render(request, 'solarpv/solarPV_Register.html', context)
+	return render(request, 'solarpv/solarPV_Register.html', context)
 
 
 def regC(request):
-    if request.method == 'POST':
-        manuForm = registerModForm(request.POST)
+	if request.method == 'POST':
+		manuForm = registerModForm(request.POST)
 
-        if manuForm.is_valid():
-            # allow when testing is finished
-            manuForm.save()
-            return redirect('home')
+		if manuForm.is_valid():
+			# allow when testing is finished
+			manuForm.save()
+			return redirect('home')
 
-    else:
-        manuForm = registerModForm()
+	else:
+		manuForm = registerModForm()
 
-    context = {'form': manuForm}
-    return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
+	context = {'form': manuForm}
+	return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
 
 
 def regTL(request):
-    if request.method == 'POST':
-        testForm = registerTestLabForm(request.POST)
+	if request.method == 'POST':
+		testForm = registerTestLabForm(request.POST)
 
-        if testForm.is_valid():
-            testForm.save()
-            return redirect('home')
+		if testForm.is_valid():
+			testForm.save()
+			return redirect('home')
 
-    else:
-        testForm = registerTestLabForm()
+	else:
+		testForm = registerTestLabForm()
 
-    context = {'form': testForm}
-    return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
+	context = {'form': testForm}
+	return render(request, 'solarpv/solarPV_RegisterCompany.html', context)
 
 
 def regPro(request):
-    if request.method == 'POST':
-        productForm = registerProductForm(request.POST)
+	if request.method == 'POST':
+		productForm = registerProductForm(request.POST)
 
-        if productForm.is_valid():
-            # allow when testing is finished
-            productForm.save()
-            return redirect('home')
+		if productForm.is_valid():
+			# allow when testing is finished
+			productForm.save()
+			return redirect('home')
 
-    else:
-        productForm = registerProductForm()
+	else:
+		productForm = registerProductForm()
 
-    context = {'form': productForm}
-    return render(request, 'solarpv/solarPV_RegisterProduct.html', context)
+	context = {'form': productForm}
+	return render(request, 'solarpv/solarPV_RegisterProduct.html', context)
 
 
 def pvModule(request):
-    return render(request, 'solarpv/solarPV_PvModule.html')
+	return render(request, 'solarpv/solarPV_PvModule.html')
 
 
 def testp(request):
-    if request.method == 'POST':
-        form = uploadForm(request.POST, request.FILES)
+	if request.method == 'POST':
+		form = uploadForm(request.POST, request.FILES)
 
-        if form.is_valid():
-            instant = fileUpload(upload=request.FILES['file'])
-            # file is saved
-            instant1.save()
-            return HttpResponseRedirect('/homedemo/sport/')
+		if form.is_valid():
+			file = fileUpload(upload=request.FILES['file'])
+			# file is saved
+			file.save()
+			return HttpResponseRedirect('pvmodulepage')
 
-    else:
-        form = uploadForm()
+	else:
+		form = uploadForm()
 
-    context = {'form': form}
-    return render(request, 'solarpv/solarPV_TestingPage.html')
+	file = fileUpload.objects.all()
+
+	context = {'form': form, 'documents': file, }
+	return render(request, 'solarpv/solarPV_TestingPage.html', context)

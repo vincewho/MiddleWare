@@ -3,28 +3,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
-    <title>solarPV-Homepage</title>
-    {% endblock %}
+	{% block head %}
+	<title>solarPV-Homepage</title>
+	{% endblock %}
 </head>
 
 <body>
 
-        {% block content %}
-        <div class="col-8 col-m-6 col-s-12">
-            <h1>Welcome to solarPV <br /> Research & Devlopment</h1>
+		{% block content %}
+		<div class="col-8 col-m-6 col-s-12">
+			<h1>Welcome to solarPV <br /> Research & Devlopment</h1>
 
-            <img id="homegalleryimg" src="{% static "solarpv/images/home_gallery.jpg" %}" alt="Home Image"><br /><br /><br />
+			<img id="homegalleryimg" src="{% static "solarpv/images/home_gallery.jpg" %}" alt="Home Image"><br /><br /><br />
 
-            <h4>How Does Solar Energy Work?</h4><br />
-            <video id="solarvideo" controls>
-                <source src="{% static "solarpv/videos/Home_Video.mp4" %}" type="video/mp4">
-                Your browser does not support the video tag.</video>
+			<h4>How Does Solar Energy Work?</h4><br />
+			<video id="solarvideo" controls>
+				<source src="{% static "solarpv/videos/Home_Video.mp4" %}" type="video/mp4">
+				Your browser does not support the video tag.</video>
 
-            <br /><br />
-            <div id="out"></div>
-        </div>
-        {% endblock %}
+			<br /><br />
+			<div id="out"></div>
+		</div>
+		{% endblock %}
 
 </body>
 </html>
