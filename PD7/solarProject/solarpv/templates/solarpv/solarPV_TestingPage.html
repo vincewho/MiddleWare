@@ -11,9 +11,11 @@
 <body>
 
   {% block content %}
+
+
 	<!-- Registration begin -->
 		<div class="col-8 col-m-6 col-s-12 container" id="content">
-			<form name='registration' id="Register" action="" method="post" autocomplete="on">
+			<form name='registration' id="Register" action="" method="post" enctype="multipart/form-data">
 				<h1>Register Testing</h1>
 				<h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
 				<fieldset><br />
@@ -27,11 +29,27 @@
 					<p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
 					<input type="submit" value="Submit">
 					<input type="submit" value="Reset Form">
-					<p><a href="solarPV_Login.html">Already have an Account?</a></p>
 				</fieldset>
 			</form>
 
 			<br /><br />
+
+<!-- 			{% if files %}
+			<ul>
+			{% for file in files %}
+				<li><a href="{{ file.upload.url }}">{{ file.upload.name }}</a></li>
+			{% endfor %}
+			</ul>
+			{% else %}
+				<p>No files.</p>
+			{% endif %}
+ -->
+			<h2>Single Test Data Here</h2>
+
+
+			{{ lines }}
+
+
 		</div>
 
 
