@@ -1,4 +1,4 @@
-import sys, csv
+import sys, csv, re
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import *
@@ -89,7 +89,7 @@ def regPro(request):
 	else:
 		productForm = registerProductForm()
 
-	context = {'form': productFrorm}
+	context = {'form': productForm}
 	return render(request, 'solarpv/solarPV_RegisterProduct.html', context)
 
 
@@ -118,13 +118,15 @@ def testp(request):
 	path = '/home/mwtester/Desktop/djangoBox/mynew_evn/solarProject/media/uploads/'
 	try:
 		file = open(path + 'test_results.csv')
-		data = file.readlines()
-		# for row in data:
-		# 	print(row)
+		lines = file.readlines()
+		# old_data = lines.split(',')
+		# new_data = []
+		# for line in lines:
+			# line = line.replace(',', '\t')
+			# new_data.append(line)
 		print('In the try')
-		# lines = data.split('\n')
 	except:
 		print('In the fail')
 
-	context = {'form': form, 'files': file, 'lines': data}
+	context = {'form': form, 'files': file, 'new_data': lines}
 	return render(request, 'solarpv/solarPV_TestingPage.html', context)

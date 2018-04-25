@@ -27,10 +27,25 @@
 					<!-- Top links -->
 					<p>
 						<a href="solarPV_Contact.html">About Us</a> |
-						<a href="{% url 'registeruser' %}">Register User</a> |
-						<a href="{% url 'registercompany' %}">Register Company</a> |
-						<a href="{% url 'pvmodulepage' %}">PV Module</a> |
-                        <a href="{% url 'pvmodulepage' %}">PV Test</a> |
+                        <div class="dropdown">
+                            <button class="dropbtn">PV Module</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'pvmodulepage' %}">PV Module</a>
+                                <a href="{% url 'testpage' %}">PV Test</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Registration</button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'registeruser' %}">Register User</a>
+                                <a href="{% url 'registercompany' %}">Register Company</a>
+                                <a href="{% url 'registerproduct' %}">Register Product</a>
+
+                            </div>
+                        </div>
+
+
 						<a href="solarPV_Login.html">Login </a>
 					</p>
 
