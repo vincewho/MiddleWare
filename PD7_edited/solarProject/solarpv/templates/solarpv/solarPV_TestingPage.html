@@ -1,0 +1,53 @@
+{% extends 'solarpv/base.html' %}
+{% load static %}
+<head>
+
+	{% block head %}
+	<title>solarPV-Testing Page</title>
+	{% endblock %}
+
+</head>
+
+<body>
+
+  {% block content %}
+
+
+	<!-- Registration begin -->
+		<div class="col-8 col-m-6 col-s-12 container" id="content">
+			<form name='registration' id="Register" action="" method="post" enctype="multipart/form-data">
+				<h1>Register Testing</h1>
+				<h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
+				<fieldset><br />
+
+					{% csrf_token %}
+					<h3> Upload here: </h3>
+
+					{{ form }}
+
+					<p>Review your entries before Registering!</p>
+					<p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
+					<input type="submit" value="Submit">
+					<input type="submit" value="Reset Form">
+				</fieldset>
+			</form>
+
+			<br /><br />
+
+			<h2>Single Test Data Here</h2>
+			<br />
+			{% for i in datalist %}
+				{% for field in i %}
+					{{ field }}
+				{% endfor %}
+				<br />
+			{% endfor %}
+			<br />
+			
+
+		</div>
+
+
+{% endblock %}
+</body>
+</html>

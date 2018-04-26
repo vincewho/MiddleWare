@@ -1,0 +1,38 @@
+{% extends 'solarpv/base.html' %}
+{% load static %}
+<head>
+
+    {% block head %}
+    <title>solarPV-Register Product</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block content %}
+
+        <div class="col-8 col-m-6 col-s-12 container" id="content">
+            <form name='registration' id="Register" action="{% url 'registerproduct' %}" method="post" autocomplete="on">
+                <!-- {% csrf_token %} -->
+                <h1>Register</h1>
+                <h4>Register today to recieve notifications on upcoming Events & Promotions!</h4>
+                <fieldset><br />
+
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <p>Review your entries before Registering!</p>
+                    <p>By clicking "Register Now", you agree to the <a href="#">Terms & Conditions</a>.</p>
+                    <input type="submit" value="Submit">
+                    <input type="submit" value="Reset Form">
+                    <!-- <button name="submit" type="submit" value="Submit" class="button">Register Now</button> -->
+                    <!-- <button name="reset" type="reset" class="button">Reset Form</button><br /><br /> -->
+                    <p><a href="{% url 'home' %}">Already have an Account?</a></p>
+                </fieldset>
+            </form>
+
+            <br /><br />
+        </div>
+
+    {% endblock %}
+</body>
